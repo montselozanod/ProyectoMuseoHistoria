@@ -1,27 +1,23 @@
-<p id="notice"><%= notice %></p>
+<link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 
-<p>
-  <strong>Name:</strong>
-  <%= @museo.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @museo.description %>
-</p>
-
-<p>
-  <strong>Imgurl:</strong>
-  <%= @museo.imgURL %>
-</p>
-
-<div class="col-md-8">
+<div class="off-canvas-wrapper">
+  <div class="callout primary">
+    <div class="row column">
+      <h1><%= @museo.name %></h1>
+      <h4><%= @museo.description %></h4>
+    </div>
+  </div>
+  
+  <br>
+  <div class="row small-up-1 medium-up-3 large-up-3">
     <% if @museo.exposicions.any? %>
-      <h3>Exposiciones (<%= @museo.exposicions.count %>)</h3>
       <ol class="exposicions">
         <%= render @exposicions %>
       </ol>
     <% end %>
   </div>
+
+</div>
 
 <%= link_to 'Back', museos_path %>
