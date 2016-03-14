@@ -36,7 +36,7 @@ class ExposicionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exposicion_params
-      params.require(:exposicion).permit(:name, :description, :imgURL, :type, :active, :museo)
+      params.require(:exposicion).permit(:name, :description, :imgURL, :type, :active, :museo_id)
     end
 
 end

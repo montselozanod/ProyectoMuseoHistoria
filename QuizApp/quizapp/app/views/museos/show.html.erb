@@ -15,5 +15,14 @@
   <%= @museo.imgURL %>
 </p>
 
-<%= link_to 'Edit', edit_museo_path(@museo) %> |
+<div class="col-md-8">
+    <% if @museo.exposicions.any? %>
+      <h3>Exposiciones (<%= @museo.exposicions.count %>)</h3>
+      <ol class="exposicions">
+        <%= render @exposicions %>
+      </ol>
+      <%= will_paginate @exposicions %>
+    <% end %>
+  </div>
+
 <%= link_to 'Back', museos_path %>
