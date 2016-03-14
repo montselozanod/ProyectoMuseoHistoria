@@ -1,0 +1,29 @@
+<h1>Listing museos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Imgurl</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @museos.each do |museo| %>
+      <tr>
+        <td><%= museo.name %></td>
+        <td><%= museo.description %></td>
+        <td><%= museo.imgURL %></td>
+        <td><%= link_to 'Show', museo %></td>
+        <td><%= link_to 'Edit', edit_museo_path(museo) %></td>
+        <td><%= link_to 'Destroy', museo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Museo', new_museo_path %>

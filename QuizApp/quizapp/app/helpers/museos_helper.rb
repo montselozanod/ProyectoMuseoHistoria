@@ -1,0 +1,2 @@
+module MuseosHelper
+end

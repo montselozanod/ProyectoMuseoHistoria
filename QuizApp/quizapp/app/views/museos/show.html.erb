@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @museo.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @museo.description %>
+</p>
+
+<p>
+  <strong>Imgurl:</strong>
+  <%= @museo.imgURL %>
+</p>
+
+<%= link_to 'Edit', edit_museo_path(@museo) %> |
+<%= link_to 'Back', museos_path %>
