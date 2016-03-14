@@ -11,7 +11,7 @@
     <% @museos.each do |museo| %>
       <div class="column">
 
-        <%= link_to image_tag(museo.imgURL, size: "100x100"), museo_path(museo) %>
+        <%= link_to image_tag(museo.imgURL, class: "thumbnail"), museo_path(museo) %>
         <h5><%= museo.name %></h5>
         <h5><%= museo.description %></h5>
       </div>

@@ -8,6 +8,8 @@ class ExposicionsController < ApplicationController
   # GET /museos/1
   # GET /museos/1.json
   def show
+    @exposicion = Exposicion.find(params[:id])
+    @salas = @exposicion.salas
   end
 
   def new
