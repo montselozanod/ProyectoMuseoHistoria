@@ -10,7 +10,8 @@
   <div class="row small-up-1 medium-up-3 large-up-3">
     <% @museos.each do |museo| %>
       <div class="column">
-        <img class="thumbnail" src="<%= museo.imgURL %>">
+
+        <%= link_to image_tag(museo.imgURL, size: "100x100"), museo_path(museo) %>
         <h5><%= museo.name %></h5>
         <h5><%= museo.description %></h5>
       </div>
