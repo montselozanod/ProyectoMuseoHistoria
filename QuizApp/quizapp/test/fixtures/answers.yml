@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  textAnswer: MyText
+  active: false
+  imgURL: MyString
+  pregunta_id: 
+
+two:
+  textAnswer: MyText
+  active: false
+  imgURL: MyString
+  pregunta_id: 
