@@ -11,7 +11,7 @@ class MuseosController < ApplicationController
   # GET /museos/1.json
   def show
     @museo = Museo.find(params[:id])
-    @exposicions = @museo.exposicions.paginate(page: params[:page])
+    @exposicions = @museo.exposicions
   end
 
   # GET /museos/new
