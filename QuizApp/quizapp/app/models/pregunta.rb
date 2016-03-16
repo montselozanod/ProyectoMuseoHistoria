@@ -12,5 +12,5 @@ class Pregunta < ActiveRecord::Base
     check_answers = correct_answer.map(&:id)
     check_answers.include? answer.to_i
   end
-
+  
 end
