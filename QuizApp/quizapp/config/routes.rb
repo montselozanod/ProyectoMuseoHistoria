@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :museos
   resources :exposicions
+  resources :salas
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
