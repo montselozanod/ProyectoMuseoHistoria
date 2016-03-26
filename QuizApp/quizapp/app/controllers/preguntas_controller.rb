@@ -9,7 +9,7 @@ class PreguntasController < ApplicationController
   # GET /museos/1.json
   def show
     @pregunta = Pregunta.find(params[:id])
-    @preguntas = @pregunta.preguntas
+    @answers = @pregunta.answers
   end
 
   def new
