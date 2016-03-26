@@ -22,7 +22,7 @@ class SalasController < ApplicationController
     respond_to do |format|
       if @sala.save
         format.html { redirect_to @sala, notice: 'Sala was successfully created.' }
-        format.json { render :show, status: :created, location: @exposicion }
+        format.json { render :show, status: :created, location: @sala }
       else
         format.html { render :new }
         format.json { render json: @sala.errors, status: :unprocessable_entity }
