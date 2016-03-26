@@ -14,7 +14,7 @@
       <div class="blog-post">
         <h5><%= pregunta.description %></h5>
         <% pregunta.answers.each do |answer| %>
-          <h5><%= answer.textAnswer %></h5>
+          <a href="#" class"button expand"><%= answer.textAnswer %></a>
         <% end %>
       </div>
     <% end %>
