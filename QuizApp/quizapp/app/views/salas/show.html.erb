@@ -13,6 +13,9 @@
     <% @preguntas.each do |pregunta| %>
       <div class="blog-post">
         <h5><%= pregunta.description %></h5>
+        <% pregunta.answers.each do |answer| %>
+          <h5><%= answer.textAnswer %></h5>
+        <% end %>
       </div>
     <% end %>
   </div>
