@@ -8,3 +8,14 @@
       <h4><%= @sala.description %></h4>
     </div>
   </div>
+
+<div class="row medium-8 large-7 columns">
+    <% @preguntas.each do |pregunta| %>
+      <div class="blog-post">
+        <h5><%= pregunta.description %></h5>
+        <% pregunta.answers.each do |answer| %>
+          <a href="#" class"button expand"><%= answer.textAnswer %></a>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
