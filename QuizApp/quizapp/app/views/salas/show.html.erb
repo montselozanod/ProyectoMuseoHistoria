@@ -1,5 +1,11 @@
 <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 
+<script language="javascript" type="text/javascript">
+  function empezar() {
+    var pDiv = document.getElementById("preguntaDiv0");
+    pDiv.style.display = 'inline';
+  }
+</script>
 
 <div class="off-canvas-wrapper">
   <div class="callout primary">
@@ -10,12 +16,42 @@
   </div>
 
 <div class="row medium-8 large-7 columns">
-    <% @preguntas.each do |pregunta| %>
-      <div class="blog-post">
+    <% @preguntas.each_with_index do |pregunta, index| %>
+      <div id="preguntaDiv<%= index %>" class="blog-post" style="display: none">
+        <% if index == 0 %> <script>empezar();</script> <% end %>
         <h5><%= pregunta.description %></h5>
         <% pregunta.answers.each do |answer| %>
-          <a href="#" class="button expand" style="color:white"><%= answer.textAnswer %></a>
+          <a href="#" class="button expand" style="color:white" onclick="showExtraInfo(<%= index %>);return false;"><%= answer.textAnswer %></a>
         <% end %>
+      </div>
+      <div id="extraInfoDiv<%= index %>" class="row medium-8 large-7 columns" style="display: none">
+        <div class="blog-post">
+          <div align="center">
+            <h3>Correcto!</h3>
+            <%= image_tag(pregunta.imgURL, :class => "thumbnail") %>
+          </div>
+          <div class="callout">
+            <p><%= pregunta.extraInfo %></p>
+          </div>
+          <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">Siguiente</a>
+        </div>
       </div>
     <% end %>
   </div>
+
+<script language="javascript" type="text/javascript">
+  function showExtraInfo(i) {
+    var pDiv = document.getElementById("preguntaDiv" + i);
+    var iDiv = document.getElementById("extraInfoDiv" + i);
+    pDiv.style.display = 'none';
+    iDiv.style.display = 'inline';
+  }
+
+  function showSigPregunta(i) {
+    var sig = i + 1;
+    var pDiv = document.getElementById("preguntaDiv" + sig);
+    var iDiv = document.getElementById("extraInfoDiv" + i);
+    pDiv.style.display = 'inline';
+    iDiv.style.display = 'none';
+  }
+</script>
