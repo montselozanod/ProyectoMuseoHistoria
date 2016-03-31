@@ -35,7 +35,9 @@
           <div class="callout">
             <p><%= pregunta.extraInfo %></p>
           </div>
-          <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">Siguiente</a>
+          <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
+            <% if index == @preguntas.size - 1 %> Terminar <% else %> Siguiente <% end %>
+          </a>
         </div>
       </div>
     <% end %>
