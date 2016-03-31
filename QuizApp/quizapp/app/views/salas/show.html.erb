@@ -21,13 +21,15 @@
         <% if index == 0 %> <script>empezar();</script> <% end %>
         <h5><%= pregunta.description %></h5>
         <% pregunta.answers.each do |answer| %>
-          <a href="#" class="button expand" style="color:white" onclick="showExtraInfo(<%= index %>);return false;"><%= answer.textAnswer %></a>
+          <a href="#" class="button expand" style="color:white" onclick="showExtraInfo(<%= index %>, <%= answer.correct %>);return false;">
+            <%= answer.textAnswer %>
+          </a>
         <% end %>
       </div>
       <div id="extraInfoDiv<%= index %>" class="row medium-8 large-7 columns" style="display: none">
         <div class="blog-post">
           <div align="center">
-            <h3>Correcto!</h3>
+            <h3 id="respuestaCorrecta<%= index %>">Correcto!</h3>
             <%= image_tag(pregunta.imgURL, :class => "thumbnail") %>
           </div>
           <div class="callout">
@@ -40,7 +42,13 @@
   </div>
 
 <script language="javascript" type="text/javascript">
-  function showExtraInfo(i) {
+  function showExtraInfo(i, correcto) {
+    if(correcto) {
+      document.getElementById("respuestaCorrecta" + i).innerHTML = "Correcto!";
+    }
+    else {
+      document.getElementById("respuestaCorrecta" + i).innerHTML = "Incorrecto!";
+    }
     var pDiv = document.getElementById("preguntaDiv" + i);
     var iDiv = document.getElementById("extraInfoDiv" + i);
     pDiv.style.display = 'none';
