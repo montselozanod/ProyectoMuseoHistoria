@@ -4,11 +4,11 @@
 <div class="off-canvas-wrapper">
   <div class="callout primary">
     <div class="row column">
-      <h1><%= @museo.name %></h1>
-      <h4><%= @museo.description %></h4>
+      <div class="header title"><%= @museo.name %></div>
+      <div class="header action"><%= link_to "Sign out", destroy_admin_session_path, :method => :delete %></div>
     </div>
   </div>
-  
+
   <br>
   <div class="row small-up-1 medium-up-3 large-up-3">
     <% if @museo.exposicions.any? %>
@@ -20,4 +20,4 @@
 
 </div>
 
-<%= link_to 'Back', museos_path %>
+<%= link_to 'Back', '/dashboard/museos' %>

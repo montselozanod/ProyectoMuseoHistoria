@@ -9,15 +9,13 @@
   </div>
   <br>
   <div class="row small-up-1 medium-up-3 large-up-3">
-    <% @museos.each do |museo| %>
+    <% @exposicions.each do |exposicion| %>
       <div class="column">
-
-        <%= link_to image_tag(museo.imgURL, class: "thumbnail"), museo_path(museo) %>
-        <h5><%= museo.name %></h5>
-        <h5><%= museo.description %></h5>
+        <h5><%= exposicion.name %></h5>
+        <h5><%= exposicion.description %></h5>
       </div>
     <% end %>
-    <a class="large button expand nuevo" href="museos/new">Nuevo Museo</a>
+    <a class="large button expand nuevo" href="exposicions/new">Nueva Exposicion</a>
   </div>
 
 </div>
