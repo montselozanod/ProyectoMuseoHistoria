@@ -184,3 +184,7 @@
    background-color: #52318e !important;
    color: white !important;
  }
+
+ .hidden{
+   visibility: hidden;
+ }

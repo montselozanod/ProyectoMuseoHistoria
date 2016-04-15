@@ -20,8 +20,12 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
+    <%= f.label :imgURL %><br>
+    <%= f.text_field :imgURL %>
+  </div>
+  <div class="field hidden">
     <%= f.label :museo_id %><br>
-    <%= f.text_field :museo_id %>
+    <%= f.text_field :museo_id, :value => @museoid   %>
   </div>
   <div class="actions">
     <%= f.submit %>

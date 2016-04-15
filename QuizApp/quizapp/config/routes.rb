@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get 'quiz' => 'quiz#index'
   get 'dashboard/museos' => 'museos#index'
   get 'dashboard/museos/new' => 'museos#new'
+  get 'exposicions/new/:museoid', to: 'exposicions#new'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

@@ -14,6 +14,7 @@ class ExposicionsController < ApplicationController
 
   def new
     @exposicion = Exposicion.new
+    @museoid = params[:museoid]
     respond_with(@exposicion)
   end
 
@@ -42,6 +43,6 @@ class ExposicionsController < ApplicationController
     end
 
     def exposicion_params
-      params.require(:exposicion).permit(:name, :description, :museo_id)
+      params.require(:exposicion).permit(:name, :description, :museo_id, :imgURL)
     end
 end
