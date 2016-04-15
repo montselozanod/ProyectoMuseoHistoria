@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :exposicions
+
   get 'home/index'
 
   get 'admin/index'

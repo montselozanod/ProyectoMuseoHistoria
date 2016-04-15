@@ -1,23 +1,19 @@
-<link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+<p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Name:</strong>
+  <%= @exposicion.name %>
+</p>
 
-<div class="off-canvas-wrapper">
-  <div class="callout primary">
-    <div class="row column">
-      <h1><%= @exposicion.name %></h1>
-      <h4><%= @exposicion.description %></h4>
-    </div>
-  </div>
+<p>
+  <strong>Description:</strong>
+  <%= @exposicion.description %>
+</p>
 
-  <br>
-  <div class="row small-up-1 medium-up-3 large-up-3">
-    <% if @exposicion.salas.any? %>
-      <ol class="salas">
-        <%= render @salas %>
-      </ol>
-    <% end %>
-  </div>
+<p>
+  <strong>Museo:</strong>
+  <%= @exposicion.museo %>
+</p>
 
-</div>
-
-<%= link_to 'Back', museo_path(@exposicion.museo_id) %>
+<%= link_to 'Edit', edit_exposicion_path(@exposicion) %> |
+<%= link_to 'Back', exposicions_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331171924) do
+ActiveRecord::Schema.define(version: 20160415064118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,10 +48,7 @@ ActiveRecord::Schema.define(version: 20160331171924) do
 
   create_table "exposicions", force: true do |t|
     t.string   "name"
-    t.text     "description"
-    t.string   "imgURL"
-    t.string   "expType"
-    t.boolean  "active"
+    t.string   "description"
     t.integer  "museo_id"
     t.datetime "created_at"
     t.datetime "updated_at"

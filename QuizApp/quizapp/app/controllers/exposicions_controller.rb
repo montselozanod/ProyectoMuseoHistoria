@@ -1,44 +1,47 @@
 class ExposicionsController < ApplicationController
   before_action :set_exposicion, only: [:show, :edit, :update, :destroy]
 
+  respond_to :html
+
   def index
     @exposicions = Exposicion.all
+    respond_with(@exposicions)
   end
 
-  # GET /museos/1
-  # GET /museos/1.json
   def show
-    @exposicion = Exposicion.find(params[:id])
-    @salas = @exposicion.salas
+    respond_with(@exposicion)
   end
 
   def new
     @exposicion = Exposicion.new
+    respond_with(@exposicion)
+  end
+
+  def edit
   end
 
   def create
     @exposicion = Exposicion.new(exposicion_params)
+    @exposicion.save
+    respond_with(@exposicion)
+  end
 
-    respond_to do |format|
-      if @exposicion.save
-        format.html { redirect_to @exposicion, notice: 'Exposicion was successfully created.' }
-        format.json { render :show, status: :created, location: @exposicion }
-      else
-        format.html { render :new }
-        format.json { render json: @exposicion.errors, status: :unprocessable_entity }
-      end
-    end
+  def update
+    @exposicion.update(exposicion_params)
+    respond_with(@exposicion)
+  end
+
+  def destroy
+    @exposicion.destroy
+    respond_with(@exposicion)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_exposicion
       @exposicion = Exposicion.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def exposicion_params
-      params.require(:exposicion).permit(:name, :description, :imgURL, :expType, :active, :museo_id)
+      params.require(:exposicion).permit(:name, :description, :museo_id)
     end
-
 end

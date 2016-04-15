@@ -2,16 +2,10 @@
 
 one:
   name: MyString
-  description: MyText
-  imgURL: MyString
-  type: 
-  active: false
+  description: MyString
   museo_id: 
 
 two:
   name: MyString
-  description: MyText
-  imgURL: MyString
-  type: 
-  active: false
+  description: MyString
   museo_id: 
