@@ -1,8 +1,28 @@
+<link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+
 <% if user_signed_in? %>
   <div>Signed in as... <%= current_user.email %></div>
 <% end %>
 
-<h1>Quiz#index</h1>
-<p>Find me in app/views/quiz/index.html.erb</p>
+<div class="off-canvas-wrapper">
+  <div class="callout primary">
+    <div class="row column">
+      <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
+      <div class="header action"><%= link_to "Sign out", destroy_admin_session_path, :method => :delete %></div>
+    </div>
+  </div>
+
+  <br>
+  <div class="row small-up-1 medium-up-3 large-up-3">
+    <h1><%= @museo.name %></h1>
+    <% if @museo.exposicions.any? %>
+      <ol class="exposicions">
+        <%= render @exposicions %>
+      </ol>
+    <% end %>
+    <a class="large button expand nuevo" href="/exposicions/new/<%= @museo.id %>">Nueva Exposicion</a>
+  </div>
+
+</div>
 
 <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
