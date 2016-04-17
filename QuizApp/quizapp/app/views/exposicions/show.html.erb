@@ -14,6 +14,13 @@
   <strong>Museo:</strong>
   <%= @exposicion.museo %>
 </p>
-
+<p>
+  <strong>Tipo:</strong>
+  <%= @exposicion.etype %>
+</p>
+<p>
+  <strong>Active:</strong>
+  <%= @exposicion.active %>
+</p>
 <%= link_to 'Edit', edit_exposicion_path(@exposicion) %> |
 <%= link_to 'Back', exposicions_path %>
