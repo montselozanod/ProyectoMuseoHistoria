@@ -40,11 +40,11 @@
               <p><%= pregunta.extraInfo %></p>
             </div>
             <% if index == @preguntas.size - 1 %>
-            <%= link_to "Terminar", endquiz_path, :class => "button expand", :style=>"color:white" %>
+              <%= link_to "Terminar", endquiz_path, :class => "button expand", :style=>"color:white" %>
             <% else %>
-            <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
-               Siguiente
-            </a>
+              <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
+                Siguiente
+              </a>
             <% end %>
           </div>
         </div>
