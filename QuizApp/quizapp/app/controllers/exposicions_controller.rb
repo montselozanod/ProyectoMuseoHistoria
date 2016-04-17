@@ -8,6 +8,13 @@ class ExposicionsController < ApplicationController
     respond_with(@exposicions)
   end
 
+  # GET /quiz/exposicions/1
+  # GET /quiz/exposicions/1.json
+  def salasquiz
+    @exposicion = Exposicion.find(params[:id])
+    @salas = @exposicion.salas
+  end
+
   def show
     respond_with(@exposicion)
   end
