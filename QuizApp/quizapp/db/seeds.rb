@@ -13,9 +13,9 @@ Exposicion.create!([
   {name: "Autos", description: "Autos representativos de cada siglo", imgURL: "http://1.bp.blogspot.com/-ocQuwQ_5NEE/UGSKNSe1FAI/AAAAAAAAAy0/d6jk8vQvQ4E/s1600/fotos-autos-antiguos-clasicos.jpg", etype: "temporal", active: true, museo_id: 1}
 ])
 Museo.create!([
-  {name: "Museo de Historia Mexicana", description: "La exhibicion historica mas importante en el norte de Mexico. Conformada por ms de 1,200 piezas, que ilustran distintos aspectos de la vida en Mexico desde la epoca prehispanica hasta el siglo XX.", imgURL: "https://c1.staticflickr.com/3/2667/3805893120_38c02e6b12_b.jpg"},
-  {name: "Museo del Noreste", description: "MUNE proyecta en su montaje permanente la historia regional que comprende los estados de Nuevo Leon, Coahuila, Tamaulipas y Texas, desde tiempos remotos hasta nuestros dias.", imgURL: "https://c1.staticflickr.com/3/2667/3805893120_38c02e6b12_b.jpg"},
-  {name: "Museo del Palacio", description: "Sitio historico que preside la vida de los nuevoleoneses y en donde es posible reflexionar acerca de los diversos procesos que forjaron a la actual sociedad de este estado.", imgURL: "https://c1.staticflickr.com/3/2667/3805893120_38c02e6b12_b.jpg"}
+  {name: "Museo de Historia Mexicana", description: "La exhibición histórica más importante en el norte de México. Conformada por más de 1,200 piezas, que ilustran distintos aspectos de la vida en México desde la época prehispánica hasta el siglo XX.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/10/fachada_mhm_8.jpg"},
+  {name: "Museo del Noreste", description: "MUNE proyecta en su montaje permanente la historia regional que comprende los estados de Nuevo León, Coahuila, Tamaulipas y Texas, desde tiempos remotos hasta nuestros días.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/10/fachada_mune_2.jpg"},
+  {name: "Museo del Palacio", description: "Sitio histórico que preside la vida de los nuevoleoneses y en donde es posible reflexionar acerca de los diversos procesos que forjaron a la actual sociedad de este Estado.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/10/fachada_palacio_3.jpg"}
 ])
 Pregunta.create!([
   {description: "Con que revolucion evoluciono la moda de este siglo?", extraInfo: "Con la revolucin francesa la moda se populariza y los hombres inventan pantalones de tubo y las mujeres tienden a ponerse vestidos que realcen ms su silueta.", imgURL: "http://www.biografiasyvidas.com/monografia/luis_xiv/fotos/luis_xiv_1704.jpg", active: true, sala_id: 1},
