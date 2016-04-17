@@ -17,29 +17,33 @@
 
 <div class="row medium-8 large-7 columns">
     <% @preguntas.each_with_index do |pregunta, index| %>
-      <div id="preguntaDiv<%= index %>" class="blog-post" style="display: none">
-        <% if index == 0 %> <script>empezar();</script> <% end %>
-        <h5><%= pregunta.description %></h5>
-        <% pregunta.answers.each do |answer| %>
-          <a href="#" class="button expand" style="color:white" onclick="showExtraInfo(<%= index %>, <%= answer.correct %>);return false;">
-            <%= answer.textAnswer %>
-          </a>
-        <% end %>
-      </div>
-      <div id="extraInfoDiv<%= index %>" class="row medium-8 large-7 columns" style="display: none">
-        <div class="blog-post">
-          <div align="center">
-            <h3 id="respuestaCorrecta<%= index %>">Correcto!</h3>
-            <%= image_tag(pregunta.imgURL, :class => "thumbnail") %>
-          </div>
-          <div class="callout">
-            <p><%= pregunta.extraInfo %></p>
-          </div>
-          <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
-            <% if index == @preguntas.size - 1 %> Terminar <% else %> Siguiente <% end %>
-          </a>
+      <% if pregunta.active %>
+        <div id="preguntaDiv<%= index %>" class="blog-post" style="display: none">
+          <% if index == 0 %> <script>empezar();</script> <% end %>
+          <h5><%= pregunta.description %></h5>
+          <% pregunta.answers.each do |answer| %>
+            <% if answer.active %>
+              <a href="#" class="button expand" style="color:white" onclick="showExtraInfo(<%= index %>, <%= answer.correct %>);return false;">
+                <%= answer.textAnswer %>
+              </a>
+            <% end %>
+          <% end %>
         </div>
-      </div>
+        <div id="extraInfoDiv<%= index %>" class="row medium-8 large-7 columns" style="display: none">
+          <div class="blog-post">
+            <div align="center">
+              <h3 id="respuestaCorrecta<%= index %>">Correcto!</h3>
+              <%= image_tag(pregunta.imgURL, :class => "thumbnail") %>
+            </div>
+            <div class="callout">
+              <p><%= pregunta.extraInfo %></p>
+            </div>
+            <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
+              <% if index == @preguntas.size - 1 %> Terminar <% else %> Siguiente <% end %>
+            </a>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 

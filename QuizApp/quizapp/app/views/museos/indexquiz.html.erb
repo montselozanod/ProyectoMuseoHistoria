@@ -13,11 +13,13 @@
     <h1><%= @museo.name %></h1>
     <% if @museo.exposicions.any? %>
       <% @exposicions.each do |exposicion| %>
-        <div class="column">
-          <%= link_to image_tag(exposicion.imgURL, class: "thumbnail"), salasquiz_path(exposicion) %>
-          <h5><%= exposicion.name %></h5>
-          <h5><%= exposicion.description %></h5>
-        </div>
+        <% if exposicion.active %>
+          <div class="column">
+            <%= link_to image_tag(exposicion.imgURL, class: "thumbnail"), salasquiz_path(exposicion) %>
+            <h5><%= exposicion.name %></h5>
+            <h5><%= exposicion.description %></h5>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
