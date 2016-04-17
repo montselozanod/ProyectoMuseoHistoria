@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :salas
   resources :quiz
 
-
+  resource :museos do
+    get 'indexquiz'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
