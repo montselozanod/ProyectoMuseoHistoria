@@ -1,5 +1,5 @@
 class MuseosController < ApplicationController
-  #before_filter :authenticate_admin!
+  before_filter :authenticate_admin!, only: [:index, :show, :new, :edit, :destroy, :create, :update]
   before_action :set_museo, only: [:show, :edit, :update, :destroy]
 
   # GET /museos
