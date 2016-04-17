@@ -54,18 +54,17 @@
 
 <script language="javascript" type="text/javascript">
   function showExtraInfo(i, correcto) {
-    var points = parseInt(document.cookie.replace(/(?:(?:^|.*;\s*)points\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
+    //var points = parseInt(Cookie.get('points'));
+    //var points = parseInt(document.cookie.replace(/(?:(?:^|.*;\s*)points\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
 
-    alert(points);
     if(correcto) {
       document.getElementById("respuestaCorrecta" + i).innerHTML = "Correcto!";
-      points += 10;
-      alert(points);
-    }
-    else {
+    //  points += 10;
+      //alert(points);
+    }else {
       document.getElementById("respuestaCorrecta" + i).innerHTML = "Incorrecto!";
     }
-
+    //Cookies.set('points', points);
     var pDiv = document.getElementById("preguntaDiv" + i);
     var iDiv = document.getElementById("extraInfoDiv" + i);
     pDiv.style.display = 'none';

@@ -9,5 +9,6 @@
   </div>
 
 <div class="callout large success">
-  <h1> Score <%= current_user.currentPoints %></h1>
+  <h1> Puntaje: <%= current_user.currentPoints %></h1>
+  <%= link_to "Regresar", '/quiz', :class => "button expand", :style=>"color:white" %>
 </div>
