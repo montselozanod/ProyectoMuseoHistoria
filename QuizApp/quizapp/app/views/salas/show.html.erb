@@ -23,6 +23,7 @@
         <% pregunta.answers.each do |answer| %>
           <a href="#" class="button expand" style="color:white" onclick="showExtraInfo(<%= index %>, <%= answer.correct %>);return false;">
             <%= answer.textAnswer %>
+            <%= current_user %>
           </a>
         <% end %>
       </div>
@@ -35,9 +36,15 @@
           <div class="callout">
             <p><%= pregunta.extraInfo %></p>
           </div>
-          <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
-            <% if index == @preguntas.size - 1 %> Terminar <% else %> Siguiente <% end %>
+          <% if index == @preguntas.size - 1 %>
+          <a href="#" class="button expand" style="color:white">
+            Terminar
           </a>
+          <% else %>
+          <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
+             Siguiente
+          </a>
+          <% end %>
         </div>
       </div>
     <% end %>
