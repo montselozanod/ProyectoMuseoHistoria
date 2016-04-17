@@ -24,7 +24,6 @@
         <% pregunta.answers.each do |answer| %>
           <a href="#" class="button expand" style="color:white" onclick="showExtraInfo(<%= index %>, <%= answer.correct %>);return false;">
             <%= answer.textAnswer %>
-            <%= current_user.id %>
           </a>
         <% end %>
       </div>
@@ -38,10 +37,7 @@
             <p><%= pregunta.extraInfo %></p>
           </div>
           <% if index == @preguntas.size - 1 %>
-          <%= button_to "Terminar", endquiz_path %>
-          <a href="#" class="button expand" style="color:white">
-            Terminar
-          </a>
+          <%= link_to "Terminar", endquiz_path, :class => "button expand", :style=>"color:white" %>
           <% else %>
           <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
              Siguiente
