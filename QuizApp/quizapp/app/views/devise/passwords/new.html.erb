@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="center row">
+        <h1 class="center signup-logo">3 Museos</h1>
+        <div class="row">
+            <div class="large-12 columns">
+                <div class="signup-panel">
+                    <p class="welcome">Recordar contraseña</p>
+                    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                    <%= devise_error_messages! %>
+                      <div class="row collapse">
+                        <div class="small-4  columns">
+                          <%= f.label :email %>
+                        </div>
+                        <div class="small-8  columns">
+                          <%= f.email_field :email, autofocus: true %>
+                        </div>
+                      </div>
+
+                      <div class="row collapse">
+                          <div class="small-8 columns">
+                          </div>
+                          <div class="small-4 columns submit center">
+                              <%= f.submit "Enviar" %></br>
+                              <%= render "devise/shared/links" %>
+                          </div>
+                      </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

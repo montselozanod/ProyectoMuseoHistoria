@@ -1,0 +1,29 @@
+<h1>Listing exposicions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Museo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exposicions.each do |exposicion| %>
+      <tr>
+        <td><%= exposicion.name %></td>
+        <td><%= exposicion.description %></td>
+        <td><%= exposicion.museo %></td>
+        <td><%= link_to 'Show', exposicion %></td>
+        <td><%= link_to 'Edit', edit_exposicion_path(exposicion) %></td>
+        <td><%= link_to 'Destroy', exposicion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Exposicion', new_exposicion_path %>

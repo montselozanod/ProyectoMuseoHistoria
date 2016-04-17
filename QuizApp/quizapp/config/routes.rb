@@ -1,17 +1,36 @@
 Rails.application.routes.draw do
+  resources :exposicions
+
+  get 'home/index'
+
+  get 'admin/index'
+
+  get 'quiz/index'
+
+  devise_for :admins
+  devise_for :users
   resources :museos
   resources :exposicions
   resources :salas
+  resources :quiz
 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#index'
+
+  get 'user_root', to: redirect('quiz'), as: :user_root
+  get 'admin_root', to: redirect('dashboard'), as: :admin_root
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+  get 'dashboard' => 'admin#index'
+  get 'quiz' => 'quiz#index'
+  get 'dashboard/museos' => 'museos#index'
+  get 'dashboard/museos/new' => 'museos#new'
+  get 'exposicions/new/:museoid', to: 'exposicions#new'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

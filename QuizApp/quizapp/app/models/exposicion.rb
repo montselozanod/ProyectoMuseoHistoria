@@ -1,4 +1,4 @@
 class Exposicion < ActiveRecord::Base
-  has_many :salas
   belongs_to :museo
+  has_many :salas
 end

@@ -3,11 +3,13 @@
 <div class="off-canvas-wrapper">
   <div class="callout primary">
     <div class="row column">
-      <h1>3 Museos</h1>
+      <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
+      <div class="header action"><%= link_to "Sign out", destroy_admin_session_path, :method => :delete %></div>
     </div>
   </div>
   <br>
   <div class="row small-up-1 medium-up-3 large-up-3">
+    <h1>Museos</h1>
     <% @museos.each do |museo| %>
       <div class="column">
 
@@ -16,6 +18,7 @@
         <h5><%= museo.description %></h5>
       </div>
     <% end %>
+    <a class="large button expand nuevo" href="museos/new">Nuevo Museo</a>
   </div>
 
 </div>

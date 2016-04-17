@@ -1,0 +1,33 @@
+<%= form_for(@exposicion) do |f| %>
+  <% if @exposicion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exposicion.errors.count, "error") %> prohibited this exposicion from being saved:</h2>
+
+      <ul>
+      <% @exposicion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :imgURL %><br>
+    <%= f.text_field :imgURL %>
+  </div>
+  <div class="field hidden">
+    <%= f.label :museo_id %><br>
+    <%= f.text_field :museo_id, :value => @museoid   %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
