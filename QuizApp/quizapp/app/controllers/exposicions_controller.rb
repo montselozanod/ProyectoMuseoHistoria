@@ -43,6 +43,6 @@ class ExposicionsController < ApplicationController
     end
 
     def exposicion_params
-      params.require(:exposicion).permit(:name, :description, :museo_id, :imgURL)
+      params.require(:exposicion).permit(:name, :description, :museo_id, :imgURL, :etype, :active)
     end
 end

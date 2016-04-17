@@ -9,8 +9,8 @@ Answer.create!([
   {textAnswer: "Argentina", active: true, imgURL: nil, pregunta_id: 2, correct: false}
 ])
 Exposicion.create!([
-  {name: "Telas", description: "Telas representativas de cada siglo", imgURL: "http://thumbs.dreamstime.com/x/telas-tradicionales-13006097.jpg", expType: "temporal", active: true, museo_id: 1},
-  {name: "Autos", description: "Autos representativos de cada siglo", imgURL: "http://1.bp.blogspot.com/-ocQuwQ_5NEE/UGSKNSe1FAI/AAAAAAAAAy0/d6jk8vQvQ4E/s1600/fotos-autos-antiguos-clasicos.jpg", expType: "temporal", active: true, museo_id: 1}
+  {name: "Telas", description: "Telas representativas de cada siglo", imgURL: "http://thumbs.dreamstime.com/x/telas-tradicionales-13006097.jpg", etype: "temporal", active: true, museo_id: 1},
+  {name: "Autos", description: "Autos representativos de cada siglo", imgURL: "http://1.bp.blogspot.com/-ocQuwQ_5NEE/UGSKNSe1FAI/AAAAAAAAAy0/d6jk8vQvQ4E/s1600/fotos-autos-antiguos-clasicos.jpg", etype: "temporal", active: true, museo_id: 1}
 ])
 Museo.create!([
   {name: "Museo de Historia Mexicana", description: "La exhibicion historica mas importante en el norte de Mexico. Conformada por ms de 1,200 piezas, que ilustran distintos aspectos de la vida en Mexico desde la epoca prehispanica hasta el siglo XX.", imgURL: "https://c1.staticflickr.com/3/2667/3805893120_38c02e6b12_b.jpg"},
