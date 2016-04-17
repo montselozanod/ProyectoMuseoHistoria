@@ -16,6 +16,7 @@
   </div>
 
 <div class="row medium-8 large-7 columns">
+
     <% @preguntas.each_with_index do |pregunta, index| %>
       <div id="preguntaDiv<%= index %>" class="blog-post" style="display: none">
         <% if index == 0 %> <script>empezar();</script> <% end %>
@@ -23,7 +24,7 @@
         <% pregunta.answers.each do |answer| %>
           <a href="#" class="button expand" style="color:white" onclick="showExtraInfo(<%= index %>, <%= answer.correct %>);return false;">
             <%= answer.textAnswer %>
-            <%= current_user %>
+            <%= current_user.id %>
           </a>
         <% end %>
       </div>
@@ -37,6 +38,7 @@
             <p><%= pregunta.extraInfo %></p>
           </div>
           <% if index == @preguntas.size - 1 %>
+          <%= button_to "Terminar", endquiz_path %>
           <a href="#" class="button expand" style="color:white">
             Terminar
           </a>
@@ -52,12 +54,18 @@
 
 <script language="javascript" type="text/javascript">
   function showExtraInfo(i, correcto) {
+    var points = parseInt(document.cookie.replace(/(?:(?:^|.*;\s*)points\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
+
+    alert(points);
     if(correcto) {
       document.getElementById("respuestaCorrecta" + i).innerHTML = "Correcto!";
+      points += 10;
+      alert(points);
     }
     else {
       document.getElementById("respuestaCorrecta" + i).innerHTML = "Incorrecto!";
     }
+
     var pDiv = document.getElementById("preguntaDiv" + i);
     var iDiv = document.getElementById("extraInfoDiv" + i);
     pDiv.style.display = 'none';

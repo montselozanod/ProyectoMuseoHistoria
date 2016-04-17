@@ -2,6 +2,7 @@ class SalasController < ApplicationController
   before_action :set_sala, only: [:show, :edit, :update, :destroy]
 
   def index
+    cookies[:points] = 0
     @salas = Sala.all
   end
 
@@ -28,6 +29,20 @@ class SalasController < ApplicationController
         format.json { render json: @sala.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def endquiz
+    tries = current_user.currentPoints
+    trieps = current_user.trypointss
+    if tries != nil
+      numTry = tries + 1
+    else
+      numTry = 1
+    end
+
+    object = Trypoints.new(:points => cookies[:points], :numTry => numTry , :user_id => current_user.id)
+    object.save
+    cookies[:points] = 0
   end
 
   private

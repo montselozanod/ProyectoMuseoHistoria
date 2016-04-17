@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get 'dashboard/museos' => 'museos#index'
   get 'dashboard/museos/new' => 'museos#new'
   get 'quiz/salas/:id', to: 'salas#show', :as => 'quizshow'
+  get 'quiz/salas/:id/finish', to: 'salas#endquiz', :as => 'endquiz'
   get 'exposicions/new/:museoid', to: 'exposicions#new'
   get 'quiz/museos/:id', to: 'museos#indexquiz', :as => 'indexquiz'
   get 'quiz/exposicions/:id', to: 'exposicions#salasquiz', :as => 'salasquiz'
