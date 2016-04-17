@@ -11,16 +11,17 @@
       <div class="header action"><%= link_to "Sign out", destroy_admin_session_path, :method => :delete %></div>
     </div>
   </div>
-
   <br>
   <div class="row small-up-1 medium-up-3 large-up-3">
-    <h1><%= @museo.name %></h1>
-    <% if @museo.exposicions.any? %>
-      <ol class="exposicions">
-        <%= render @exposicions %>
-      </ol>
+    <h1>Museos</h1>
+    <% @museos.each do |museo| %>
+      <div class="column">
+
+        <%= link_to image_tag(museo.imgURL, class: "thumbnail"), indexquiz_museo_path(museo) %>
+        <h5><%= museo.name %></h5>
+        <h5><%= museo.description %></h5>
+      </div>
     <% end %>
-    <a class="large button expand nuevo" href="/exposicions/new/<%= @museo.id %>">Nueva Exposicion</a>
   </div>
 
 </div>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :exposicions
 
   get 'home/index'
 
@@ -31,6 +30,7 @@ Rails.application.routes.draw do
   get 'dashboard/museos' => 'museos#index'
   get 'dashboard/museos/new' => 'museos#new'
   get 'exposicions/new/:museoid', to: 'exposicions#new'
+  get 'quiz/museos/:museoid', to: 'museos#indexquiz'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

@@ -15,6 +15,13 @@ class MuseosController < ApplicationController
     @exposicions = @museo.exposicions
   end
 
+  # GET /quiz/museos/1
+  # GET /quiz/museos/1.json
+  def indexquiz
+    @museo = Museo.find(params[:id])
+    @exposicions = @museo.exposicions
+  end
+
   # GET /museos/new
   def new
     @museo = Museo.new
