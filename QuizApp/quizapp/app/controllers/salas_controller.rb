@@ -15,6 +15,7 @@ class SalasController < ApplicationController
 
   def new
     @sala = Sala.new
+    @exposicionid = params[:exposicionid]
   end
 
   def create
