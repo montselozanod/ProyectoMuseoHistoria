@@ -32,15 +32,18 @@ class SalasController < ApplicationController
   end
 
   def endquiz
-    tries = current_user.currentPoints
-    trieps = current_user.trypointss
-    if tries != nil
+    @sala = Sala.find(params[:id])
+    current_user.currentPoints = cookies[:points]
+    current_user.save
+    tries = current_user.trypoints.length
+
+    if tries > 0
       numTry = tries + 1
     else
       numTry = 1
     end
 
-    object = Trypoints.new(:points => cookies[:points], :numTry => numTry , :user_id => current_user.id)
+    object = Trypoint.new(:points => cookies[:points], :numTry => numTry , :user_id => current_user.id)
     object.save
     cookies[:points] = 0
   end
