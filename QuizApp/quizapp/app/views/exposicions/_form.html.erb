@@ -23,6 +23,15 @@
     <%= f.label :imgURL %><br>
     <%= f.text_field :imgURL %>
   </div>
+  <div class="field">
+    <%= f.label :Tipo %><br>
+	<%= f.select :etype, ['Permanente', 'Semipermanente', 'Temporal']%>    
+  </div>
+  <div class="field">
+    <%= f.label :Activa %><br>
+	<%= f.radio_button :active, 'true' %> Si
+    <%= f.radio_button :active, 'false' %> No  
+  </div>
   <div class="field hidden">
     <%= f.label :museo_id %><br>
     <%= f.text_field :museo_id, :value => @museoid   %>
