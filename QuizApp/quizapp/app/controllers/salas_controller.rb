@@ -43,6 +43,8 @@ class SalasController < ApplicationController
 
     object = Trypoint.new(:points => current_user.currentPoints, :numTry => numTry , :user_id => current_user.id)
     object.save
+    current_user.currentPoints = 0
+    current_user.save
   end
 
   private
