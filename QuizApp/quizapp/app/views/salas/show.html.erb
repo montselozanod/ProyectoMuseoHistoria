@@ -56,8 +56,8 @@
   function showExtraInfo(i, correcto) {
     if(correcto) {
       document.getElementById("respuestaCorrecta" + i).innerHTML = "Correcto!";
-      <%= current_user.currentPoints += 10 %>
-      <%= current_user.save %>
+      <% current_user.currentPoints += 10 %>
+      <% current_user.save %>
     }else {
       document.getElementById("respuestaCorrecta" + i).innerHTML = "Incorrecto!";
     }
