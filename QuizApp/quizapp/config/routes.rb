@@ -38,10 +38,12 @@ Rails.application.routes.draw do
   get 'dashboard/museos/:museoid/exposicions/:id', to: 'exposicions#show', :as => 'exposicion_show'
   get 'dashboard/museos/:museoid/exposicions/:id/edit', to: 'exposicions#edit', :as => 'exposicion_edit'
   delete 'dashboard/exposicions/:id', to: 'exposicions#destroy', :as => 'exposicion_destroy'
+  get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/new', to: 'salas#new', :as => 'sala_new'
+  get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:id/edit', to: 'salas#edit', :as => 'sala_edit'
+  delete 'salas/:id', to: 'salas#destroy', :as => 'sala_destroy'
   
   get 'quiz/salas/:id', to: 'salas#show', :as => 'quizshow'
   get 'exposicions/new/:museoid', to: 'exposicions#new'
-  get 'salas/new/:exposicionid', to: 'salas#new'
   get 'quiz/museos/:id', to: 'museos#indexquiz', :as => 'indexquiz'
   get 'quiz/exposicions/:id', to: 'exposicions#salasquiz', :as => 'salasquiz'
 

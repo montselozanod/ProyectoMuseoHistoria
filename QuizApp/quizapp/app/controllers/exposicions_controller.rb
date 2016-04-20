@@ -18,6 +18,7 @@ class ExposicionsController < ApplicationController
   def show
     @exposicion = Exposicion.find(params[:id])
     @salas = @exposicion.salas
+    @museoid = params[:museoid]
     respond_with(@exposicion)
   end
 

@@ -3,23 +3,27 @@
 <div class="off-canvas-wrapper">
   <div class="callout primary">
     <div class="row column">
-      <h1><%= @exposicion.name %></h1>
-      <h4><%= @exposicion.description %></h4>
+      <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
+      <div class="header action"><%= link_to "Sign out", destroy_admin_session_path, :method => :delete %></div>
     </div>
   </div>
 <br>
   <div class="row small-up-1 medium-up-3 large-up-3">
+    <h1><%= @exposicion.name %></h1>
+    <br/>
     <% if @exposicion.salas.any? %>
       <% @salas.each do |sala| %>
         <div class="column">
           <%= link_to image_tag(sala.mapImgURL, class: "thumbnail"), '/exposicions/'+sala.exposicion_id.to_s %>
           <h5><%= sala.name %></h5>
           <h5><%= sala.description %></h5>
+          <div class="museo_links">
+            <%= link_to "Editar", sala_edit_path({:id => sala.id, :exposicionid => sala.exposicion_id, :museoid => @museoid}) %>, <%= link_to "Borrar", sala_destroy_path(sala), :method => :delete %>
+          </div>
         </div>
       <% end %>
     <% end %>
-    <a class="large button expand nuevo" href="/salas/new/<%= @exposicion.id %>">Nueva Sala</a>
+    <a class="large button expand nuevo" href="<%= sala_new_path({:museoid => @exposicion.museo_id, :exposicionid => @exposicion.id}) %>">Nueva Sala</a>
+    <%= link_to 'Back', museo_show_path(@exposicion.museo_id) %>
   </div>
 </div>
-
-<%= link_to 'Back', '/museos/'+@exposicion.museo_id.to_s %>
