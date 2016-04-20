@@ -28,90 +28,46 @@
      font-family: "futura-pt", helvetica, arial, sans-serif;
  }
 
-
  .center.row {
-
- height: 300px;
-
- margin-left: auto;
-
- margin-right: auto;
-
- padding-top: 5%;
-
- max-width: 500px;
-
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+    max-width: 500px;
  }
 
-
-
  .signup-panel {
-
    padding: 15px;
    background-color: white;
    border: 1px solid #a3a3a3;
-
  }
-
-
 
  .signup-panel i {
-
    font-size: 30px;
-
    line-height: 50px;
-
    color: #999;
-
  }
-
-
 
  .signup-panel form input, .signup-panel form span {
-
    height: 50px;
-
  }
-
-
 
  .signup-panel .welcome {
-
    font-size: 26px;
-
    text-align: center;
-
    margin-left: 0;
-
  }
-
-
 
  .signup-panel .button {
-
    margin-left: 35%;
-
  }
-
-
 
  section.active {
-
- padding-top: 75px !important;
-
+    padding-top: 75px !important;
  }
-
-
 
  p.title {
-
- border-bottom: 1px solid #cccccc !important;
-
- }
-
-
-
- .content{
+    border-bottom: 1px solid #cccccc !important;
  }
 
  .submit input{
@@ -188,3 +144,12 @@
  .hidden{
    visibility: hidden;
  }
+
+.museo_links a{
+  color: #52318e !important;
+}
+
+.museo_links a:hover{
+  color: #666 !important;
+  background-color: transparent !important;
+}

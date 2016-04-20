@@ -13,14 +13,18 @@
     <% @museos.each do |museo| %>
       <div class="column">
 
-        <%= link_to image_tag(museo.imgURL, class: "thumbnail"), museo_path(museo) %>
+        <%= link_to image_tag(museo.imgURL, class: "thumbnail"), museo_show_path(museo) %>
         <h5><%= museo.name %></h5>
         <h5><%= museo.description %></h5>
+        <div class="museo_links">
+          <%= link_to "Editar", museo_edit_path(museo) %>, <%= link_to "Borrar", museo_destroy_path(museo), :method => :delete %>
+        </div>
       </div>
     <% end %>
     <a class="large button expand nuevo" href="museos/new">Nuevo Museo</a>
+    <div class="museo_links">
+      <%= link_to 'Back', '/dashboard' %>
+    </div>
   </div>
 
 </div>
-
-<%= link_to 'Back', '/dashboard' %>

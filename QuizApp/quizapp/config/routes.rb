@@ -29,8 +29,16 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
   get 'dashboard' => 'admin#index'
   get 'quiz' => 'quiz#index'
-  get 'dashboard/museos' => 'museos#index'
+  
+  get 'dashboard/museos', to: 'museos#index', :as => 'museo_index'
   get 'dashboard/museos/new' => 'museos#new'
+  get 'dashboard/museos/:id', to: 'museos#show', :as => 'museo_show'
+  get 'dashboard/museos/:id/edit', to: 'museos#edit', :as => 'museo_edit'
+  delete 'dashboard/museos/:id', to: 'museos#destroy', :as => 'museo_destroy'
+  get 'dashboard/museos/:museoid/exposicions/:id', to: 'exposicions#show', :as => 'exposicion_show'
+  get 'dashboard/museos/:museoid/exposicions/:id/edit', to: 'exposicions#edit', :as => 'exposicion_edit'
+  delete 'dashboard/exposicions/:id', to: 'exposicions#destroy', :as => 'exposicion_destroy'
+  
   get 'quiz/salas/:id', to: 'salas#show', :as => 'quizshow'
   get 'exposicions/new/:museoid', to: 'exposicions#new'
   get 'salas/new/:exposicionid', to: 'salas#new'

@@ -28,6 +28,7 @@ class ExposicionsController < ApplicationController
   end
 
   def edit
+    @museoid = params[:museoid]
   end
 
   def create
@@ -37,13 +38,15 @@ class ExposicionsController < ApplicationController
   end
 
   def update
+    @id = @exposicion.museo_id.to_s
     @exposicion.update(exposicion_params)
-    respond_with(@exposicion)
+    redirect_to museo_show_path(@id)
   end
 
   def destroy
+    @id = @exposicion.museo_id.to_s
     @exposicion.destroy
-    respond_with(@exposicion)
+    redirect_to museo_show_path(@id)
   end
 
   private
