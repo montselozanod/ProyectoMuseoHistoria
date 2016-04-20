@@ -17,7 +17,7 @@
         <%= render @exposicions %>
       </ol>
     <% end %>
-    <a class="large button expand nuevo" href="/exposicions/new/<%= @museo.id %>">Nueva Exposicion</a>
+    <a class="large button expand nuevo" href="<%= exposicion_new_path(@museo.id) %>">Nueva Exposicion</a>
     <%= link_to 'Back', '/dashboard/museos' %>
   </div>
 

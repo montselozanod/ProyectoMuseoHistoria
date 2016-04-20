@@ -14,7 +14,7 @@
     <% if @exposicion.salas.any? %>
       <% @salas.each do |sala| %>
         <div class="column">
-          <%= link_to image_tag(sala.mapImgURL, class: "thumbnail"), '/exposicions/'+sala.exposicion_id.to_s %>
+          <%= link_to image_tag(sala.mapImgURL, class: "thumbnail"), sala_show_path({:id => sala.id, :exposicionid => sala.exposicion_id, :museoid => @museoid}) %>
           <h5><%= sala.name %></h5>
           <h5><%= sala.description %></h5>
           <div class="museo_links">

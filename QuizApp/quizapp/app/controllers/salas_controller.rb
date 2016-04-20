@@ -10,6 +10,8 @@ class SalasController < ApplicationController
   def show
     @sala = Sala.find(params[:id])
     @preguntas = @sala.preguntas
+    @exposicionid = params[:exposicionid]
+    @museoid = params[:museoid]
   end
 
   def new
