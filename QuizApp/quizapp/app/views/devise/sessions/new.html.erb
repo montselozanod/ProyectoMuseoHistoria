@@ -9,7 +9,7 @@
                     <%= devise_error_messages! %>
                       <div class="row collapse">
                         <div class="small-4  columns">
-                          <%= f.label :email %>
+                          <%= f.label "Correo" %>
                         </div>
                         <div class="small-8  columns">
                           <%= f.email_field :email, autofocus: true %>
@@ -18,7 +18,7 @@
 
                       <div class="row collapse">
                         <div class="small-4 columns ">
-                            <%= f.label :password %>
+                            <%= f.label "Contraseña" %>
                         </div>
                         <div class="small-8 columns ">
                           <%= f.password_field :password, autocomplete: "off" %>
@@ -27,7 +27,7 @@
 
                       <div class="row collapse">
                         <div class="small-4 columns ">
-                            <%= f.label :remember_me %>
+                            <%= f.label "Recuérdame" %>
                         </div>
                         <div class="small-8 columns ">
                           <%= f.check_box :remember_me %>
