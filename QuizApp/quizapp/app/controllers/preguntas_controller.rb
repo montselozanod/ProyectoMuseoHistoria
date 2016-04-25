@@ -14,14 +14,45 @@ class PreguntasController < ApplicationController
 
   def new
     @pregunta = Pregunta.new
+    @salaid = params[:salaid]
+  end
+  
+  def edit
+    @exposicionid = params[:exposicionid]
+    @museoid = params[:museoid]
+    @salaid = params[:salaid]
+  end
+  
+  def update
+    @salaid = params[:salaid]
+    @exposicionid = params[:exposicionid]
+    @museoid = params[:museoid]
+    
+    @pregunta.update(pregunta_params)
+    
+    redirect_to sala_show_path({:museoid => @museoid, :exposicionid => @exposicionid, :id => @salaid})
+  end
+  
+  def destroy
+    @id = @pregunta.sala_id.to_s
+    @sala = Sala.find(@id)
+    @exposicion = Exposicion.find(@sala.exposicion_id)
+    
+    @pregunta.destroy
+    
+    redirect_to sala_show_path({:museoid => @exposicion.museo_id, :exposicionid => @exposicion.id, :id => @sala.id})
   end
 
   def create
     @pregunta = Pregunta.new(pregunta_params)
+    
+    @salaid = params[:salaid]
+    @exposicionid = params[:exposicionid]
+    @museoid = params[:museoid]
 
     respond_to do |format|
       if @pregunta.save
-        format.html { redirect_to @pregunta, notice: 'Pregunta was successfully created.' }
+        format.html { redirect_to sala_show_path({:museoid => @museoid, :exposicionid => @exposicionid, :id => @salaid}), notice: 'Pregunta was successfully created.' }
         format.json { render :show, status: :created, location: @pregunta }
       else
         format.html { render :new }

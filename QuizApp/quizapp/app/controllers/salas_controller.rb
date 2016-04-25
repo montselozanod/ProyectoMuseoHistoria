@@ -13,6 +13,13 @@ class SalasController < ApplicationController
     @exposicionid = params[:exposicionid]
     @museoid = params[:museoid]
   end
+  
+  def showquiz
+    @sala = Sala.find(params[:id])
+    @preguntas = @sala.preguntas
+    @exposicionid = params[:exposicionid]
+    @museoid = params[:museoid]
+  end
 
   def new
     @sala = Sala.new
