@@ -52,7 +52,9 @@
         </div>
       <% end %>
     <% end %>
-    <a class="large button expand nuevo" href="<%= pregunta_new_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @sala.id}) %>">Nueva Pregunta</a>
+    <% if current_user.admin? %>
+      <a class="large button expand nuevo" href="<%= pregunta_new_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @sala.id}) %>">Nueva Pregunta</a>
+    <% end %>
     <%= link_to 'Back', museo_path %>
   </div>
 
