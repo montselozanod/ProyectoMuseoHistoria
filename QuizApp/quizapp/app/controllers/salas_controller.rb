@@ -10,19 +10,43 @@ class SalasController < ApplicationController
   def show
     @sala = Sala.find(params[:id])
     @preguntas = @sala.preguntas
+    @exposicionid = params[:exposicionid]
+    @museoid = params[:museoid]
   end
 
   def new
     @sala = Sala.new
     @exposicionid = params[:exposicionid]
+    @museoid = params[:museoid]
+  end
+  
+  def edit
+    @exposicionid = params[:exposicionid]
+    @museoid = params[:museoid]
+  end
+  
+  def update
+    @id = @sala.exposicion_id.to_s
+    @exposicion = Exposicion.find(@id)
+    @sala.update(sala_params)
+    redirect_to exposicion_show_path({:museoid => @exposicion.museo_id, :id => @id})
+  end
+  
+  def destroy
+    @id = @sala.exposicion_id.to_s
+    @exposicion = Exposicion.find(@id)
+    @sala.destroy
+    redirect_to exposicion_show_path({:museoid => @exposicion.museo_id, :id => @id})
   end
 
   def create
     @sala = Sala.new(sala_params)
+    @id = @sala.exposicion_id.to_s
+    @exposicion = Exposicion.find(@id)
 
     respond_to do |format|
       if @sala.save
-        format.html { redirect_to @sala, notice: 'Sala was successfully created.' }
+        format.html { redirect_to exposicion_show_path({:museoid => @exposicion.museo_id, :id => @id}), notice: 'Sala was successfully created.' }
         format.json { render :show, status: :created, location: @sala }
       else
         format.html { render :new }

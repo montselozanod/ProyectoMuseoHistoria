@@ -38,7 +38,7 @@ class MuseosController < ApplicationController
 
     respond_to do |format|
       if @museo.save
-        format.html { redirect_to @museo, notice: 'Museo was successfully created.' }
+        format.html { redirect_to museo_index_path, notice: 'Museo was successfully created.' }
         format.json { render :show, status: :created, location: @museo }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class MuseosController < ApplicationController
   def update
     respond_to do |format|
       if @museo.update(museo_params)
-        format.html { redirect_to @museo, notice: 'Museo was successfully updated.' }
+        format.html { redirect_to museo_index_path, notice: 'Museo was successfully updated.' }
         format.json { render :show, status: :ok, location: @museo }
       else
         format.html { render :edit }

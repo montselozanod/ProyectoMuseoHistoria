@@ -10,14 +10,15 @@
 <div class="off-canvas-wrapper">
   <div class="callout primary">
     <div class="row column">
-      <h1><%= @sala.name %></h1>
-      <h4><%= @sala.description %></h4>
+      <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
+      <div class="header action"><%= link_to "Sign out", destroy_admin_session_path, :method => :delete %></div>
     </div>
   </div>
 </div>
 
 <div class="row medium-8 large-7 columns">
-
+    <h1><%= @sala.name %></h1>
+    <h4><%= @sala.description %></h4>
     <% @preguntas.each_with_index do |pregunta, index| %>
       <% if pregunta.active %>
         <div id="preguntaDiv<%= index %>" class="blog-post" style="display: none">
@@ -51,6 +52,8 @@
         </div>
       <% end %>
     <% end %>
+    <a class="large button expand nuevo" href="<%= pregunta_new_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @sala.id}) %>">Nueva Pregunta</a>
+    <%= link_to 'Back', museo_path %>
   </div>
 
 <script language="javascript" type="text/javascript">

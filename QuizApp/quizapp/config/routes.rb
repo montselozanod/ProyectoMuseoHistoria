@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :preguntas
+
+  resources :pregunta
+
   get 'home/index'
 
   get 'admin/index'
@@ -12,6 +16,7 @@ Rails.application.routes.draw do
   resources :exposicions
   resources :salas
   resources :quiz
+  resources :preguntas
 
   resource :museos do
     get 'indexquiz'
@@ -29,12 +34,37 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
   get 'dashboard' => 'admin#index'
   get 'quiz' => 'quiz#index'
-  get 'dashboard/museos' => 'museos#index'
-  get 'dashboard/museos/new' => 'museos#new'
+  
+  get 'dashboard/museos', to: 'museos#index', :as => 'museo_index'
+  
+  get 'dashboard/museos/new', to: 'museos#new', :as => 'museo_new'
+  get 'dashboard/museos/:id', to: 'museos#show', :as => 'museo_show'
+  get 'dashboard/museos/:id/edit', to: 'museos#edit', :as => 'museo_edit'
+  delete 'dashboard/museos/:id', to: 'museos#destroy', :as => 'museo_destroy'
+  
+  get 'dashboard/museos/:museoid/exposicions/new/', to: 'exposicions#new', :as => 'exposicion_new'
+  get 'dashboard/museos/:museoid/exposicions/:id', to: 'exposicions#show', :as => 'exposicion_show'
+  get 'dashboard/museos/:museoid/exposicions/:id/edit', to: 'exposicions#edit', :as => 'exposicion_edit'
+  delete 'dashboard/exposicions/:id', to: 'exposicions#destroy', :as => 'exposicion_destroy'
+  
+  get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/new', to: 'salas#new', :as => 'sala_new'
+  get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:id', to: 'salas#show', :as => 'sala_show'
+  get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:id/edit', to: 'salas#edit', :as => 'sala_edit'
+  delete 'salas/:id', to: 'salas#destroy', :as => 'sala_destroy'
+  
+  get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas', to: 'preguntas#index', :as => 'pregunta_index'
+  get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas/new', to: 'preguntas#new', :as => 'pregunta_new'
+  get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas/:id', to: 'preguntas#show', :as => 'pregunta_show'
+  get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas/:id/edit', to: 'preguntas#edit', :as => 'pregunta_edit'
+  delete 'preguntas/:id', to: 'preguntas#destroy', :as => 'pregunta_destroy'
+  
   get 'quiz/salas/:id', to: 'salas#show', :as => 'quizshow'
+<<<<<<< HEAD
   get 'quiz/salas/:id/finish', to: 'salas#endquiz', :as => 'endquiz'
   get 'exposicions/new/:museoid', to: 'exposicions#new'
   get 'salas/new/:exposicionid', to: 'salas#new'
+=======
+>>>>>>> 44def41a978bdf03f4ac9dd921965e84bd411d5c
   get 'quiz/museos/:id', to: 'museos#indexquiz', :as => 'indexquiz'
   get 'quiz/exposicions/:id', to: 'exposicions#salasquiz', :as => 'salasquiz'
 
