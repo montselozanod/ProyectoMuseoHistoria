@@ -5,7 +5,7 @@
   <div class="callout primary">
     <div class="row column">
       <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
-      <div class="header action"><%= link_to "Sign out", destroy_admin_session_path, :method => :delete %></div>
+      <div class="header action"><%= link_to "Cerrar Sesión", destroy_admin_session_path, :method => :delete %></div>
     </div>
   </div>
 
@@ -18,7 +18,7 @@
       </ol>
     <% end %>
     <a class="large button expand nuevo" href="<%= exposicion_new_path(@museo.id) %>">Nueva Exposicion</a>
-    <%= link_to 'Back', '/dashboard/museos' %>
+    <%= link_to 'Regresar', '/dashboard/museos' %>
   </div>
 
 </div>

@@ -1,0 +1,2 @@
+module TrypointsHelper
+end

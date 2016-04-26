@@ -53,15 +53,26 @@ Rails.application.routes.draw do
   delete 'salas/:id', to: 'salas#destroy', :as => 'sala_destroy'
 
   get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas', to: 'preguntas#index', :as => 'pregunta_index'
+  post 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas', to: 'preguntas#create', :as => 'pregunta_create'
+  put 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas/:id', to: 'preguntas#update', :as => 'pregunta_update'
+  patch 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas/:id', to: 'preguntas#update', :as => 'pregunta_patch'
   get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas/new', to: 'preguntas#new', :as => 'pregunta_new'
   get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas/:id', to: 'preguntas#show', :as => 'pregunta_show'
   get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas/:id/edit', to: 'preguntas#edit', :as => 'pregunta_edit'
   delete 'preguntas/:id', to: 'preguntas#destroy', :as => 'pregunta_destroy'
 
+
   get 'quiz/salas/:id', to: 'salas#show', :as => 'quizshow'
   get 'quiz/museos/:id', to: 'museos#indexquiz', :as => 'indexquiz'
   get 'quiz/exposicions/:id', to: 'exposicions#salasquiz', :as => 'salasquiz'
   get 'quiz/salas/:id/finish', to: 'salas#endquiz', :as => 'endquiz'
+
+  get 'points', to: 'trypointss#index', :as => 'points'
+  get 'points/:id', to: 'trypointss#show', :as => 'points_show'
+  patch 'points/:id', to: 'trypointss#update', :as => 'points_patch'
+  put 'points/:id', to: 'trypointss#update', :as => 'points_put'
+  post 'points', to: 'trypointss#create', :as => 'points_create'
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

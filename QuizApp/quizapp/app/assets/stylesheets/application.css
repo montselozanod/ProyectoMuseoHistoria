@@ -160,3 +160,9 @@
   color: #666 !important;
   background-color: transparent !important;
 }
+
+
+.imagen{
+  max-height: 150px;
+  margin: 0 auto;
+}

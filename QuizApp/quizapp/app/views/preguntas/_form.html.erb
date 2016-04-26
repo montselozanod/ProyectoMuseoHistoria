@@ -1,4 +1,4 @@
-<%= form_for(@pregunta) do |f| %>
+<%= form_for(@pregunta, :url => pregunta_patch_path) do |f| %>
   <% if @pregunta.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pregunta.errors.count, "error") %> prohibited this pregunta from being saved:</h2>
@@ -10,6 +10,28 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="field">
+    <%= f.label :description, 'Descripción' %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :extraInfo, 'Información Adicional' %><br>
+    <%= f.text_field :extraInfo %>
+  </div>
+  <div class="field">
+    <%= f.label :imgURL %><br>
+    <%= f.text_field :imgURL %>
+  </div>
+  <div class="field">
+    <%= f.label :Activa %><br>
+    <%= f.radio_button :active, 'true' %> Si
+    <%= f.radio_button :active, 'false' %> No  
+  </div>
+  <div class="field hidden">
+    <%= f.label :sala_id %><br>
+    <%= f.text_field :sala_id, :value => @salaid  %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
