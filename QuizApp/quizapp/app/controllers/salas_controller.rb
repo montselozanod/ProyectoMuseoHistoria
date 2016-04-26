@@ -13,7 +13,7 @@ class SalasController < ApplicationController
     @exposicionid = params[:exposicionid]
     @museoid = params[:museoid]
   end
-  
+
   def showquiz
     @sala = Sala.find(params[:id])
     @preguntas = @sala.preguntas
@@ -26,19 +26,19 @@ class SalasController < ApplicationController
     @exposicionid = params[:exposicionid]
     @museoid = params[:museoid]
   end
-  
+
   def edit
     @exposicionid = params[:exposicionid]
     @museoid = params[:museoid]
   end
-  
+
   def update
     @id = @sala.exposicion_id.to_s
     @exposicion = Exposicion.find(@id)
     @sala.update(sala_params)
     redirect_to exposicion_show_path({:museoid => @exposicion.museo_id, :id => @id})
   end
-  
+
   def destroy
     @id = @sala.exposicion_id.to_s
     @exposicion = Exposicion.find(@id)
@@ -75,7 +75,6 @@ class SalasController < ApplicationController
 
     object = Trypoint.new(:points => current_user.currentPoints, :numTry => numTry , :user_id => current_user.id)
     object.save
-    session[:points] = 0
   end
 
   private

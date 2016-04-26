@@ -51,9 +51,31 @@
   </div>
 
 <script language="javascript" type="text/javascript">
+
+  function callback()
+  {
+     console.log(this.responseText);
+  }
+  function getCurrentScore()
+  {
+    var request = new XMLHttpRequest();
+    request.onload = callback;
+    request.open("post", "http://localhost:3000/request");
+    request.setRequestHeader("Content-Type", "application/json");
+    request.send('{"my_data":"back to basics"}');
+  }
+
+  function postScore(score)
+  {
+
+  }
+
   function showExtraInfo(i, correcto) {
+    var currentScore = getCurrentScore();
     if(correcto) {
       document.getElementById("respuestaCorrecta" + i).innerHTML = "Correcto!";
+      currentScore += 10;
+      postScore(currentScore);
     }
     else {
       document.getElementById("respuestaCorrecta" + i).innerHTML = "Incorrecto!";

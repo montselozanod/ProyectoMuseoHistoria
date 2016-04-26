@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 
 <div class="off-canvas-wrapper">
@@ -7,42 +8,10 @@
       <div class="header action"><%= link_to "Cerrar Sesión", destroy_admin_session_path, :method => :delete %></div>
     </div>
   </div>
-</div>
 
 <div class="row small-up-1 medium-up-3 large-up-3">
     <h1><%= @sala.name %></h1>
     <h4><%= @sala.description %></h4>
-
-    <% @preguntas.each_with_index do |pregunta, index| %>
-      <% if pregunta.active %>
-        <div id="preguntaDiv<%= index %>" class="blog-post" style="display: none">
-          <% if index == 0 %> <script>empezar();</script> <% end %>
-          <h5><%= pregunta.description %></h5>
-          <% pregunta.answers.each do |answer| %>
-            <% if answer.active %>
-              <a href="#" class="button expand" style="color:white" onclick="showExtraInfo(<%= index %>, <%= answer.correct %>, <%= cookies[:points] %>);return false;">
-                <%= answer.textAnswer %>
-              </a>
-            <% end %>
-          <% end %>
-        </div>
-        <div id="extraInfoDiv<%= index %>" class="row medium-8 large-7 columns" style="display: none">
-          <div class="blog-post">
-            <div align="center">
-              <h3 id="respuestaCorrecta<%= index %>">Correcto!</h3>
-              <%= image_tag(pregunta.imgURL, :class => "thumbnail") %>
-            </div>
-            <div class="callout">
-              <p><%= pregunta.extraInfo %></p>
-            </div>
-            <% if index == @preguntas.size - 1 %>
-              <%= link_to "Terminar", endquiz_path, :class => "button expand", :style=>"color:white" %>
-            <% else %>
-              <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
-                Siguiente
-              </a>
-            <% end %>
-          </div>
 
     <% @preguntas.each do |pregunta| %>
       <div class="column">
@@ -53,44 +22,6 @@
         </div>
       </div>
     <% end %>
-
-    <!--
-      <a class="large button expand nuevo" href="<%= pregunta_new_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @sala.id}) %>">Nueva Pregunta</a>
-     -- >
-    <%= link_to 'Regresar', museo_path %>
-  </div>
-
-<script language="javascript" type="text/javascript">
-  function showExtraInfo(i, correcto, points) {
-    var session_points = parseInt(points);
-    //var pCookie = parseInt(Cookies.get('points'));
-    //alert ("points with cookie " + pCookie);
-    if(correcto) {
-      document.getElementById("respuestaCorrecta" + i).innerHTML = "Correcto!";
-      session_points += 10;
-      //Cookies.set('points', session_points);
-      alert(session_points);
-    }else {
-      document.getElementById("respuestaCorrecta" + i).innerHTML = "Incorrecto!";
-    }
-
-    alert(<%= current_user.currentPoints%>);
-    var pDiv = document.getElementById("preguntaDiv" + i);
-    var iDiv = document.getElementById("extraInfoDiv" + i);
-    pDiv.style.display = 'none';
-    iDiv.style.display = 'inline';
-  }
-
-  function showSigPregunta(i) {
-    alert(<%= current_user.currentPoints%>);
-    var sig = i + 1;
-    var pDiv = document.getElementById("preguntaDiv" + sig);
-    var iDiv = document.getElementById("extraInfoDiv" + i);
-    pDiv.style.display = 'inline';
-    iDiv.style.display = 'none';
-  }
-</script>
-
     <a class="large button expand nuevo" href="<%= pregunta_new_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @sala.id}) %>">Nueva Pregunta</a>
     <%= link_to 'Regresar', exposicion_show_path({:museoid => @museoid, :id => @exposicionid}) %>
   </div>
