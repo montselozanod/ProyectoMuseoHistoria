@@ -64,6 +64,12 @@ Rails.application.routes.draw do
   get 'quiz/salas/:id', to: 'salas#showquiz', :as => 'quizshow'
   get 'quiz/museos/:id', to: 'museos#indexquiz', :as => 'indexquiz'
   get 'quiz/exposicions/:id', to: 'exposicions#salasquiz', :as => 'salasquiz'
+  
+  get 'points', to: 'trypointss#index', :as => 'points'
+  get 'points/:id', to: 'trypointss#show', :as => 'points_show'
+  patch 'points/:id', to: 'trypointss#update', :as => 'points_patch'
+  put 'points/:id', to: 'trypointss#update', :as => 'points_put'
+  post 'points', to: 'trypointss#create', :as => 'points_create'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
