@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+
+<script language="javascript" type="text/javascript">
+  function empezar() {
+    var pDiv = document.getElementById("preguntaDiv0");
+    pDiv.style.display = 'inline';
+  }
+</script>
+
+<div class="off-canvas-wrapper">
+  <div class="callout primary">
+    <div class="row column">
+      <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
+      <div class="header action"><%= link_to "Cerrar Sesión", destroy_admin_session_path, :method => :delete %></div>
+    </div>
+  </div>
+
+<div class="row medium-8 large-7 columns">
+    <h1><%= @sala.name %></h1>
+    <h4><%= @sala.description %></h4>
+    <% @preguntas.each_with_index do |pregunta, index| %>
+      <% if pregunta.active %>
+        <div id="preguntaDiv<%= index %>" class="blog-post" style="display: none">
+          <% if index == 0 %> <script>empezar();</script> <% end %>
+          <h5><%= pregunta.description %></h5>
+          <% pregunta.answers.each do |answer| %>
+            <% if answer.active %>
+              <a href="#" class="button expand" style="color:white" onclick="showExtraInfo(<%= index %>, <%= answer.correct %>);return false;">
+                <%= answer.textAnswer %>
+              </a>
+            <% end %>
+          <% end %>
+        </div>
+        <div id="extraInfoDiv<%= index %>" class="row medium-8 large-7 columns" style="display: none">
+          <div class="blog-post">
+            <div align="center">
+              <h3 id="respuestaCorrecta<%= index %>">Correcto!</h3>
+              <%= image_tag(pregunta.imgURL, :class => "thumbnail") %>
+            </div>
+            <div class="callout">
+              <p><%= pregunta.extraInfo %></p>
+            </div>
+            <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
+              <% if index == @preguntas.size - 1 %> Terminar <% else %> Siguiente <% end %>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <%= link_to 'Regresar', salasquiz_path({:id => @sala.exposicion_id}) %>
+  </div>
+
+<script language="javascript" type="text/javascript">
+
+  function callback()
+  {
+     console.log(this.responseText);
+  }
+  function getCurrentScore()
+  {
+    var request = new XMLHttpRequest();
+    request.onload = callback;
+    request.open("post", "http://localhost:3000/request");
+    request.setRequestHeader("Content-Type", "application/json");
+    request.send('{"my_data":"back to basics"}');
+  }
+
+  function postScore(score)
+  {
+    var request = new XMLHttpRequest();
+    request.onload = callback;
+    request.open("post", "http://localhost:3000/request");
+    request.setRequestHeader("Content-Type", "application/json");
+    request.send('{"my_data":"back to basics"}');
+  }
+
+  function showExtraInfo(i, correcto) {
+    var currentScore = getCurrentScore();
+    if(correcto) {
+      document.getElementById("respuestaCorrecta" + i).innerHTML = "Correcto!";
+      currentScore += 10;
+      postScore(currentScore);
+    }
+    else {
+      document.getElementById("respuestaCorrecta" + i).innerHTML = "Incorrecto!";
+    }
+    var pDiv = document.getElementById("preguntaDiv" + i);
+    var iDiv = document.getElementById("extraInfoDiv" + i);
+    pDiv.style.display = 'none';
+    iDiv.style.display = 'inline';
+  }
+
+  function showSigPregunta(i) {
+    var sig = i + 1;
+    var pDiv = document.getElementById("preguntaDiv" + sig);
+    var iDiv = document.getElementById("extraInfoDiv" + i);
+    pDiv.style.display = 'inline';
+    iDiv.style.display = 'none';
+  }
+</script>

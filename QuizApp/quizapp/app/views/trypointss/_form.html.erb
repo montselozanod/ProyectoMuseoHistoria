@@ -1,0 +1,17 @@
+<%= form_for(@trypoint) do |f| %>
+  <% if @trypoint.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trypoint.errors.count, "error") %> prohibited this trypoint from being saved:</h2>
+
+      <ul>
+      <% @trypoint.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
