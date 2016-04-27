@@ -29,9 +29,11 @@ gem 'spring',        group: :development
 gem 'foundation-rails', '~> 5.5.0'
 gem 'sass-rails', '~>5.0.0'
 
+# Group development
+gem 'binding_of_caller', :platforms=>[:mri_21]
+
 group :development do
   gem "better_errors"
-  gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'quiet_assets'
   gem 'rails_layout'
 end
