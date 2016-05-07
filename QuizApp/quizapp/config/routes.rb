@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resource :museos do
     get 'indexquiz'
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -62,7 +63,7 @@ Rails.application.routes.draw do
   delete 'preguntas/:id', to: 'preguntas#destroy', :as => 'pregunta_destroy'
 
 
-  get 'quiz/salas/:id', to: 'salas#show', :as => 'quizshow'
+  get 'quiz/salas/:id', to: 'salas#showquiz', :as => 'quizshow'
   get 'quiz/museos/:id', to: 'museos#indexquiz', :as => 'indexquiz'
   get 'quiz/exposicions/:id', to: 'exposicions#salasquiz', :as => 'salasquiz'
   get 'quiz/salas/:id/finish', to: 'salas#endquiz', :as => 'endquiz'
@@ -73,7 +74,7 @@ Rails.application.routes.draw do
   put 'points/:id', to: 'trypointss#update', :as => 'points_put'
   post 'points', to: 'trypointss#create', :as => 'points_create'
 
-
+  post '/addpoint' => "salas#sumPoints", :as => "sumPoints"
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
