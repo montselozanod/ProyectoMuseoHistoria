@@ -66,10 +66,6 @@
       beforeSend: function(jqXHR, settings) {
         jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
       },
-      error: function()
-      {
-        console.log("error");
-      },
       success: function(response, status)
       {
         console.log("status: ");

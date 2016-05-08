@@ -4,8 +4,6 @@ class SalasController < ApplicationController
 
   def index
     @salas = Sala.all
-    current_user.currentPoints = 0
-    current_user.save
   end
 
   # GET /museos/1
@@ -68,8 +66,6 @@ class SalasController < ApplicationController
   def endquiz
     @sala = Sala.find(params[:id])
     tries = current_user.trypoints.length
-    current_user.currentPoints = cookies[:points]
-    current_user.save
     if tries > 0
       numTry = tries + 1
     else
