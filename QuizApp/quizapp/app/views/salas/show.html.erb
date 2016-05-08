@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 
 <div class="off-canvas-wrapper">
@@ -11,7 +12,7 @@
 <div class="row small-up-1 medium-up-3 large-up-3">
     <h1><%= @sala.name %></h1>
     <h4><%= @sala.description %></h4>
-            
+
     <% @preguntas.each do |pregunta| %>
       <div class="column">
         <%= link_to image_tag(pregunta.imgURL, :class => "thumbnail imagen"), pregunta_show_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>

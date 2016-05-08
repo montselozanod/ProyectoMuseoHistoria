@@ -1,10 +1,11 @@
-class TrypointssController < ApplicationController
+class TrypointsController < ApplicationController
+
   before_action :set_trypoints, only: [:show, :edit, :update, :destroy]
 
   # GET /trypointss
   # GET /trypointss.json
   def index
-    @trypointss = Trypoints.all
+    @trypoints = Trypoint.all
   end
 
   # GET /trypointss/1
@@ -14,7 +15,7 @@ class TrypointssController < ApplicationController
 
   # GET /trypointss/new
   def new
-    @trypoints = Trypoints.new
+    @trypoint = Trypoint.new
   end
 
   # GET /trypointss/1/edit
@@ -24,15 +25,15 @@ class TrypointssController < ApplicationController
   # POST /trypointss
   # POST /trypointss.json
   def create
-    @trypoints = Trypoints.new(trypoints_params)
+    @trypoint = Trypoint.new(trypoint_params)
 
     respond_to do |format|
-      if @trypoints.save
-        format.html { redirect_to @trypoints, notice: 'Trypointss was successfully created.' }
-        format.json { render :show, status: :created, location: @trypoints }
+      if @trypoint.save
+        format.html { redirect_to @trypoint, notice: 'TryPoints was successfully created.' }
+        format.json { render :show, status: :created, location: @trypoint }
       else
         format.html { render :new }
-        format.json { render json: @trypoints.errors, status: :unprocessable_entity }
+        format.json { render json: @trypoint.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -63,12 +64,12 @@ class TrypointssController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_trypoints
-      @trypoints = Trypoints.find(params[:id])
+    def set_trypoint
+      @trypoint = Trypoint.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def trypoints_params
-      params.fetch(:trypoints, {})
+    def trypoint_params
+      params.require(:trypoints).permit(:points, :numTry, :user_id)
     end
 end

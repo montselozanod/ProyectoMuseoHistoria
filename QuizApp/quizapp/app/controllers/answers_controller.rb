@@ -29,6 +29,14 @@ class AnswersController < ApplicationController
     end
   end
 
+  def checkAnswer
+    @answer = Answer.find(params[:id])
+    if @answer.correct
+      current_user.currentPoints += 10
+      current_user.save
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_answer

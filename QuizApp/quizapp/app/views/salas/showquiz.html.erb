@@ -40,9 +40,13 @@
             <div class="callout">
               <p><%= pregunta.extraInfo %></p>
             </div>
-            <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
-              <% if index == @preguntas.size - 1 %> Terminar <% else %> Siguiente <% end %>
-            </a>
+            <% if index == @preguntas.size - 1 %>
+             <%= link_to "Terminar", endquiz_path, :class => "button expand", :style=>"color:white" %>
+             <% else %>
+              <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
+                Siguiente
+              </a>
+             <% end %>
           </div>
         </div>
       <% end %>
@@ -51,9 +55,29 @@
   </div>
 
 <script language="javascript" type="text/javascript">
+
+  function updateScore()
+  {
+    $.ajax({
+      type: "POST",
+      url: "/addpoint",
+      dataType: "json",
+      data: ({}),
+      beforeSend: function(jqXHR, settings) {
+        jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+      },
+      success: function(response, status)
+      {
+        console.log("status: ");
+        console.log(status);
+      }
+    });
+  }
+
   function showExtraInfo(i, correcto) {
     if(correcto) {
       document.getElementById("respuestaCorrecta" + i).innerHTML = "Correcto!";
+      updateScore();
     }
     else {
       document.getElementById("respuestaCorrecta" + i).innerHTML = "Incorrecto!";
