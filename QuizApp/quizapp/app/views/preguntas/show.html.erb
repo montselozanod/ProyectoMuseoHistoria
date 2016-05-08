@@ -1,4 +1,23 @@
-<p id="notice"><%= notice %></p>
+<link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 
-<%= link_to 'Edit', edit_pregunta_path(@pregunta) %> |
-<%= link_to 'Back', preguntas_index_path %>
+<div class="off-canvas-wrapper">
+  <div class="callout primary">
+    <div class="row column">
+      <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
+      <div class="header action"><%= link_to "Cerrar Sesión", destroy_admin_session_path, :method => :delete %></div>
+    </div>
+  </div>
+
+<div class="row small-up-1 medium-up-3 large-up-3">
+    <h1><%= @pregunta.description %></h1>
+    <h4><%= @pregunta.extraInfo %></h4>
+            
+    <% @answers.each do |answer| %>
+      <div class="column">
+        <h5><%= answer.textAnswer %></h5>
+        <div class="museo_links">
+                  </div>  
+      </div>
+    <% end %>
+        <%= link_to 'Regresar', sala_show_path({:id => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid}) %>
+  </div>

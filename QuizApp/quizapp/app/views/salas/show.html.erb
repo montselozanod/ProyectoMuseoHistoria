@@ -14,11 +14,11 @@
             
     <% @preguntas.each do |pregunta| %>
       <div class="column">
-        <%= image_tag(pregunta.imgURL, :class => "thumbnail imagen") %>
+        <%= link_to image_tag(pregunta.imgURL, :class => "thumbnail imagen"), pregunta_show_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>
         <h5><%= pregunta.description %></h5>
         <div class="museo_links">
           <%= link_to "Editar", pregunta_edit_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>, <%= link_to "Borrar", pregunta_destroy_path(pregunta), :method => :delete %>
-        </div>
+        </div>  
       </div>
     <% end %>
     <a class="large button expand nuevo" href="<%= pregunta_new_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @sala.id}) %>">Nueva Pregunta</a>
