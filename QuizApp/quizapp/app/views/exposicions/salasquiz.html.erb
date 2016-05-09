@@ -2,17 +2,17 @@
 
 <div class="off-canvas-wrapper">
   <div class="callout primary">
-
     <% if user_signed_in? %>
-        <div style="background-color: #52318e; color: white;">
-          Bienvenido <%= current_user.email %>
+        <div style="background-color: #52318e; color: white; margin-top: -15px;">
+          &nbsp;
           <div class="header action signin" style="background-color: #52318e; line-height: 24px;">
             <%= link_to "Salir", destroy_admin_session_path, style:"height: 36px; padding-bottom: 1px;", :method => :delete %>
           </div>
         </div>
     <% end %>
+
     <div class="row column">
-      <a href="/" class="gohome"><div class="header title">3 Museos: <%= @exposicion.name %></div></a>
+      <div class="header title"><%= @exposicion.name %></div>
     </div>
   </div>
 <br>
@@ -29,4 +29,9 @@
   </div>
 </div>
 
-<%= link_to 'Back', indexquiz_path(@exposicion.museo_id) %>
+<br><br><br>
+<div class="row">
+  <div class="small-6 large-centered columns">
+    <%= link_to "Regresar", indexquiz_path(@exposicion.museo_id), :class => "button expand regresar", :style=>"color:white" %>
+  </div>
+</div>

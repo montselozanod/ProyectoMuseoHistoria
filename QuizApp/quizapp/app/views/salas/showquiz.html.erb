@@ -9,15 +9,21 @@
 
 <div class="off-canvas-wrapper">
   <div class="callout primary">
+    <% if user_signed_in? %>
+        <div style="background-color: #52318e; color: white; margin-top: -15px;">
+          &nbsp;
+          <div class="header action signin" style="background-color: #52318e; line-height: 24px;">
+            <%= link_to "Salir", destroy_admin_session_path, style:"height: 36px; padding-bottom: 1px;", :method => :delete %>
+          </div>
+        </div>
+    <% end %>
+
     <div class="row column">
-      <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
-      <div class="header action"><%= link_to "Cerrar Sesión", destroy_admin_session_path, :method => :delete %></div>
+      <div class="header title"><%= @sala.name %></div>
     </div>
   </div>
-
+<br>
 <div class="row medium-8 large-7 columns">
-    <h1><%= @sala.name %></h1>
-    <h4><%= @sala.description %></h4>
     <% @preguntas.each_with_index do |pregunta, index| %>
       <% if pregunta.active %>
         <div id="preguntaDiv<%= index %>" class="blog-post" style="display: none">
@@ -41,7 +47,7 @@
               <p><%= pregunta.extraInfo %></p>
             </div>
             <% if index == @preguntas.size - 1 %>
-             <%= link_to "Terminar", endquiz_path, :class => "button expand", :style=>"color:white" %>
+             <%= link_to "Enviar", endquiz_path, :class => "button expand", :style=>"color:white" %>
              <% else %>
               <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
                 Siguiente
@@ -51,7 +57,6 @@
         </div>
       <% end %>
     <% end %>
-    <%= link_to 'Regresar', salasquiz_path({:id => @sala.exposicion_id}) %>
   </div>
 
 <script language="javascript" type="text/javascript">
