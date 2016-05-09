@@ -1,16 +1,45 @@
 Answer.create!([
-  {textAnswer: "Revolucion Mexicana", active: true, imgURL: nil, pregunta_id: 1, correct: false},
-  {textAnswer: "Revolucion Francesa", active: true, imgURL: nil, pregunta_id: 1, correct: true},
-  {textAnswer: "Revolucion Rusa", active: true, imgURL: nil, pregunta_id: 1, correct: false},
-  {textAnswer: "Revolucion Cubana", active: true, imgURL: nil, pregunta_id: 1, correct: false},
-  {textAnswer: "Espana", active: true, imgURL: nil, pregunta_id: 2, correct: true},
-  {textAnswer: "Mexico", active: true, imgURL: nil, pregunta_id: 2, correct: false},
-  {textAnswer: "Colombia", active: true, imgURL: nil, pregunta_id: 2, correct: false},
-  {textAnswer: "Argentina", active: true, imgURL: nil, pregunta_id: 2, correct: false}
+  {textAnswer: "Representan a una deidad", active: true, imgURL: nil, pregunta_id: 1, correct: false},
+  {textAnswer: "Eran juguetes", active: true, imgURL: nil, pregunta_id: 1, correct: false},
+  {textAnswer: "Representan a príncipes", active: true, imgURL: nil, pregunta_id: 1, correct: false},
+  {textAnswer: "Se desconoce", active: true, imgURL: nil, pregunta_id: 1, correct: true},
+  {textAnswer: "Sacerdotes", active: true, imgURL: nil, pregunta_id: 2, correct: true},
+  {textAnswer: "Comerciantes", active: true, imgURL: nil, pregunta_id: 2, correct: false},
+  {textAnswer: "Dioses", active: true, imgURL: nil, pregunta_id: 2, correct: false},
+  {textAnswer: "Jugadores de pelota", active: true, imgURL: nil, pregunta_id: 2, correct: false},
+  {textAnswer: "Xochimilco", active: true, imgURL: nil, pregunta_id: 3, correct: false},
+  {textAnswer: "Chalco", active: true, imgURL: nil, pregunta_id: 3, correct: false},
+  {textAnswer: "Texcoco", active: true, imgURL: nil, pregunta_id: 3, correct: true},
+  {textAnswer: "Cuautitlan", active: true, imgURL: nil, pregunta_id: 3, correct: false},
+  {textAnswer: "1519", active: true, imgURL: nil, pregunta_id: 4, correct: false},
+  {textAnswer: "1521", active: true, imgURL: nil, pregunta_id: 4, correct: true},
+  {textAnswer: "1524", active: true, imgURL: nil, pregunta_id: 4, correct: false},
+  {textAnswer: "Nunca se rindieron", active: true, imgURL: nil, pregunta_id: 4, correct: false},
+  {textAnswer: "San Luis Potosí", active: true, imgURL: nil, pregunta_id: 5, correct: false},
+  {textAnswer: "Guanajuato", active: true, imgURL: nil, pregunta_id: 5, correct: true},
+  {textAnswer: "Estado de México", active: true, imgURL: nil, pregunta_id: 5, correct: false},
+  {textAnswer: "Jalisco", active: true, imgURL: nil, pregunta_id: 5, correct: false},
+  {textAnswer: "Fundamentos de una Nación", active: true, imgURL: nil, pregunta_id: 6, correct: false},
+  {textAnswer: "Rendimiento de la Opresión", active: true, imgURL: nil, pregunta_id: 6, correct: false},
+  {textAnswer: "Cimientos de Superación", active: true, imgURL: nil, pregunta_id: 6, correct: false},
+  {textAnswer: "Sentimientos de la Nación", active: true, imgURL: nil, pregunta_id: 6, correct: true},
+  {textAnswer: "1872", active: true, imgURL: nil, pregunta_id: 7, correct: true},
+  {textAnswer: "1887", active: true, imgURL: nil, pregunta_id: 7, correct: false},
+  {textAnswer: "1907", active: true, imgURL: nil, pregunta_id: 7, correct: false},
+  {textAnswer: "1910", active: true, imgURL: nil, pregunta_id: 7, correct: false},
+  {textAnswer: "Ejército Constitucionalista", active: true, imgURL: nil, pregunta_id: 8, correct: true},
+  {textAnswer: "Armada Cuatro Ciénegas", active: true, imgURL: nil, pregunta_id: 8, correct: false},
+  {textAnswer: "Dorados", active: true, imgURL: nil, pregunta_id: 8, correct: false},
+  {textAnswer: "División Huertista", active: true, imgURL: nil, pregunta_id: 8, correct: false},
+  {textAnswer: "Pablo González", active: true, imgURL: nil, pregunta_id: 9, correct: false},
+  {textAnswer: "Heliodoro Copado", active: true, imgURL: nil, pregunta_id: 9, correct: false},
+  {textAnswer: "Emiliano Zapata", active: true, imgURL: nil, pregunta_id: 9, correct: true},
+  {textAnswer: "Felipe Ángeles", active: true, imgURL: nil, pregunta_id: 9, correct: false}
 ])
 Exposicion.create!([
-  {name: "Telas", description: "Telas representativas de cada siglo", imgURL: "http://thumbs.dreamstime.com/x/telas-tradicionales-13006097.jpg", etype: "temporal", active: true, museo_id: 1},
-  {name: "Autos", description: "Autos representativos de cada siglo", imgURL: "http://1.bp.blogspot.com/-ocQuwQ_5NEE/UGSKNSe1FAI/AAAAAAAAAy0/d6jk8vQvQ4E/s1600/fotos-autos-antiguos-clasicos.jpg", etype: "temporal", active: true, museo_id: 1}
+  {name: "Permanente MHM", description: "Piezas históricas que hablan del devenir nacional desde tiempos prehispánicos hasta el siglo XX.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/05/DSC_6504.jpg", etype: "permanente", active: true, museo_id: 1},
+  {name: "Permanente MUNE", description: "Colección que presenta el pasado común que tienen los estados de Tamaulipas, Nuevo León, Coahuila y Texas.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/DSC_5883.jpg", etype: "permanente", active: true, museo_id: 2},
+  {name: "Permanente Palacio", description: "Museo de sitio que muestra la historia de Nuevo León, su gobierno y sociedad.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/10/expo_palacio_6.jpg", etype: "permanente", active: true, museo_id: 3}
 ])
 Museo.create!([
   {name: "Museo de Historia Mexicana", description: "La exhibición histórica más importante en el norte de México. Conformada por más de 1,200 piezas, que ilustran distintos aspectos de la vida en México desde la época prehispánica hasta el siglo XX.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/10/fachada_mhm_8.jpg"},
@@ -18,10 +47,16 @@ Museo.create!([
   {name: "Museo del Palacio", description: "Sitio histórico que preside la vida de los nuevoleoneses y en donde es posible reflexionar acerca de los diversos procesos que forjaron a la actual sociedad de este Estado.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/10/fachada_palacio_3.jpg"}
 ])
 Pregunta.create!([
-  {description: "Con que revolucion evoluciono la moda de este siglo?", extraInfo: "Con la revolucin francesa la moda se populariza y los hombres inventan pantalones de tubo y las mujeres tienden a ponerse vestidos que realcen ms su silueta.", imgURL: "http://www.biografiasyvidas.com/monografia/luis_xiv/fotos/luis_xiv_1704.jpg", active: true, sala_id: 1},
-  {description: "Donde se determino el concepto bata?", extraInfo: "BATA: Recibio este nombre en Espana. Son largos y abiertos por delante. Se caracteriza por pliegues planos que parten del cuello, recorren toda la espalda y termina en una cola. Aparece alrededor de 1780.", imgURL: "http://4.bp.blogspot.com/_Zqlj8XWOEqA/S-w66abo7cI/AAAAAAAAACY/_IFnsNaIQeI/s1600/bata.JPG", active: true, sala_id: 1}
+  {description: "¿Qué uso tenían las estatuillas olmecas de niño jaguar?", extraInfo: "A los olmecas se les llama frecuentemente “cultura madre”, no porque hayan sido los primeros habitantes del territorio ni porque todos seamos sus descendientes, sino porque fueron el primer pueblo en alcanzar un status realmente relevante.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/ma_2_nino.jpg", active: true, sala_id: 1},
+  {description: "¿Qué ocupación tendrían los personajes representados en esta estela?", extraInfo: "Lo que podemos ver en ella son dos personas que evidentemente ocupan un rango alto (posiblemente sacerdotes o nobles). ¿Cómo lo sabemos? Por los adornos que llevan. Los tocados, collares, aretes y demás ornamentación era símbolo de distinción entre ellos, de modo que una persona común y corriente no estaba autorizado a vestir de manera suntuosa, ni a utilizar accesorios llamativos.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/ma_17_dintel.jpg", active: true, sala_id: 1},
+  {description: "¿En qué lago se encontraba el islote que sirvió de base para fundar Tenochtitlan?", extraInfo: "De todas las civilizaciones prehispánicas, tal vez la más sonada es la azteca o mexica. La maqueta que tenemos frente a nosotros es el Recinto Sagrado de la Gran Tenochtitlán, la capital de su imperio. Esta ciudad fue construida sobre un islote en medio del Lago de Texcoco, y expandida encima del agua gracias a las chinampas.", imgURL: "http://www.3museos.com/wp-content/uploads/2016/04/tenochtitlan.jpg", active: true, sala_id: 1},
+  {description: "¿En qué año se dio la rendición de los mexicas?", extraInfo: "El desembarco de los conquistadores españoles fue en 1519, la caída de Tenochtitlan en 1521 y la muerte de Cuauhtemoc en 1524.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/05/prev.jpg", active: true, sala_id: 1},
+  {description: "¿En qué estado se encuentra la mina de '"'La Valenciana'"'?", extraInfo: "La Valenciana es una mina que aún existe; sin embargo, su época de esplendor se dio en el virreinato, cuando producía por sí sola más plata que todas las minas del Virreinato de Perú juntas.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/mv_32_cofre.jpg", active: true, sala_id: 1},
+  {description: "¿Cómo se llama el documento escrito por Morelos?", extraInfo: "Al morir Hidalgo, fue Morelos quien mantuvo viva la llama de la pelea, e incluso escribió un documento donde llamaba a la creación de una nación nueva, donde los puestos de gobierno fueran elegidos por el pueblo, y donde no existiera la esclavitud ni la distinción de castas.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s19_6_morelos.jpg", active: true, sala_id: 1},
+  {description: "¿En qué año murió Benito Juárez?", extraInfo: "Las máscaras mortuorias (o funerarias) se crean para conservar la expresión del difunto.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s19_30_mascara.jpg", active: true, sala_id: 1},
+  {description: "¿Cómo se llamó el ejército lidereado por Venustiano Carranza?", extraInfo: "El iniciador de la Revolución, Francisco I. Madero, fue traicionado y asesinado. Ante tal hecho, Venustiano Carranza, que era gobernador de Coahuila, reunió a los ejércitos de gran parte del país.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s20_16_bandera.jpg", active: true, sala_id: 1},
+  {description: "Lider del Ejército Libertador del Sur", extraInfo: "Su causa principal fue lograr una reforma Agraria.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s20_18_emiliano.jpg", active: true, sala_id: 1}
 ])
 Sala.create!([
-  {number: 130, name: "Telas del siglo XVIII", mapImgURL: "https://comoanilloaldedal.files.wordpress.com/2014/03/2.jpg", description: "Telas representativas del siglo 18", exposicion_id: 1},
-  {number: 140, name: "Telas siglo XX", mapImgURL: "https://comoanilloaldedal.files.wordpress.com/2014/03/2.jpg", description: "Telas representativas del siglo 20", exposicion_id: 1}
+  {number: 130, name: "Sala MHM", mapImgURL: "http://www.3museos.com/wp-content/uploads/2015/05/DSC_6504.jpg", description: "Piezas históricas que hablan del devenir nacional desde tiempos prehispánicos hasta el siglo XX.", exposicion_id: 1}
 ])

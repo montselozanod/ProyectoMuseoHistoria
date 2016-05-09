@@ -23,7 +23,7 @@
       <% @exposicions.each do |exposicion| %>
         <% if exposicion.active %>
           <div class="column">
-            <%= link_to image_tag(exposicion.imgURL, class: "thumbnail"), salasquiz_path(exposicion) %>
+            <%= link_to image_tag(exposicion.imgURL, class: "thumbnail imagenQuiz"), salasquiz_path(exposicion) %>
             <h5 style="font-weight: bold;"><%= exposicion.name %></h5>
             <h5><%= exposicion.description %></h5>
           </div>
