@@ -40,9 +40,13 @@
             <div class="callout">
               <p><%= pregunta.extraInfo %></p>
             </div>
-            <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
-              <% if index == @preguntas.size - 1 %> Terminar <% else %> Siguiente <% end %>
-            </a>
+            <% if index == @preguntas.size - 1 %>
+             <%= link_to "Terminar", endquiz_path, :class => "button expand", :style=>"color:white" %>
+             <% else %>
+              <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
+                Siguiente
+              </a>
+             <% end %>
           </div>
         </div>
       <% end %>
@@ -52,34 +56,28 @@
 
 <script language="javascript" type="text/javascript">
 
-  function callback()
+  function updateScore()
   {
-     console.log(this.responseText);
-  }
-  function getCurrentScore()
-  {
-    var request = new XMLHttpRequest();
-    request.onload = callback;
-    request.open("post", "http://localhost:3000/request");
-    request.setRequestHeader("Content-Type", "application/json");
-    request.send('{"my_data":"back to basics"}');
-  }
-
-  function postScore(score)
-  {
-    var request = new XMLHttpRequest();
-    request.onload = callback;
-    request.open("post", "http://localhost:3000/request");
-    request.setRequestHeader("Content-Type", "application/json");
-    request.send('{"my_data":"back to basics"}');
+    $.ajax({
+      type: "POST",
+      url: "/addpoint",
+      dataType: "json",
+      data: ({}),
+      beforeSend: function(jqXHR, settings) {
+        jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+      },
+      success: function(response, status)
+      {
+        console.log("status: ");
+        console.log(status);
+      }
+    });
   }
 
   function showExtraInfo(i, correcto) {
-    var currentScore = getCurrentScore();
     if(correcto) {
       document.getElementById("respuestaCorrecta" + i).innerHTML = "Correcto!";
-      currentScore += 10;
-      postScore(currentScore);
+      updateScore();
     }
     else {
       document.getElementById("respuestaCorrecta" + i).innerHTML = "Incorrecto!";

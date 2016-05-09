@@ -13,6 +13,8 @@ class ExposicionsController < ApplicationController
   def salasquiz
     @exposicion = Exposicion.find(params[:id])
     @salas = @exposicion.salas
+    current_user.currentPoints = 0
+    current_user.save
   end
 
   def show

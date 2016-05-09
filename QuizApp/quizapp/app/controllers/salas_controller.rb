@@ -1,5 +1,6 @@
 class SalasController < ApplicationController
   before_action :set_sala, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery
 
   def index
     @salas = Sala.all
@@ -65,8 +66,6 @@ class SalasController < ApplicationController
   def endquiz
     @sala = Sala.find(params[:id])
     tries = current_user.trypoints.length
-    current_user.currentPoints = cookies[:points]
-    current_user.save
     if tries > 0
       numTry = tries + 1
     else
@@ -75,6 +74,14 @@ class SalasController < ApplicationController
 
     object = Trypoint.new(:points => current_user.currentPoints, :numTry => numTry , :user_id => current_user.id)
     object.save
+  end
+
+  def sumPoints
+    current_user.currentPoints += 10
+    current_user.save
+    respond_to do |format|
+      format.json { head :ok }
+    end
   end
 
   private
