@@ -42,6 +42,8 @@ gem 'tzinfo-data', platforms: [:x64_mingw, :mingw, :mswin]
 gem 'bcrypt', '>= 3.1.11'
 gem 'devise'
 
+gem 'coffee-script-source', '1.8.0'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
