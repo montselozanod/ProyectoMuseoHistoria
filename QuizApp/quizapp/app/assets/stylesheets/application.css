@@ -125,7 +125,17 @@
  }
 
  .button.regresar:hover{
-   background-color: #422872 !important;
+   background-color: #311D55 !important;
+   color: white !important;
+ }
+
+ .button.respuesta{
+   background-color: #f8511d !important;
+   color: white !important;
+ }
+
+ .button.respuesta:hover{
+   background-color: #dd4d4d !important;
    color: white !important;
  }
 
@@ -174,4 +184,9 @@
 .imagen{
   max-height: 150px;
   margin: 0 auto;
+}
+
+.thumbnail.imagenQuiz:hover {
+ -webkit-box-shadow: 0 0 6px 1px rgb(82, 49, 142);
+ box-shadow: 0 0 6px 1px rgb(82, 49, 142);
 }
