@@ -34,7 +34,11 @@ Answer.create!([
   {textAnswer: "Pablo González", active: true, imgURL: nil, pregunta_id: 9, correct: false},
   {textAnswer: "Heliodoro Copado", active: true, imgURL: nil, pregunta_id: 9, correct: false},
   {textAnswer: "Emiliano Zapata", active: true, imgURL: nil, pregunta_id: 9, correct: true},
-  {textAnswer: "Felipe Ángeles", active: true, imgURL: nil, pregunta_id: 9, correct: false}
+  {textAnswer: "Felipe Ángeles", active: true, imgURL: nil, pregunta_id: 9, correct: false},
+  {textAnswer: "1992", active: true, imgURL: nil, pregunta_id: 10, correct: false},
+  {textAnswer: "1993", active: true, imgURL: nil, pregunta_id: 10, correct: false},
+  {textAnswer: "1994", active: true, imgURL: nil, pregunta_id: 10, correct: true},
+  {textAnswer: "1995", active: true, imgURL: nil, pregunta_id: 10, correct: false}
 ])
 Exposicion.create!([
   {name: "Permanente MHM", description: "Piezas históricas que hablan del devenir nacional desde tiempos prehispánicos hasta el siglo XX.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/05/DSC_6504.jpg", etype: "permanente", active: true, museo_id: 1},
@@ -55,7 +59,8 @@ Pregunta.create!([
   {description: "¿Cómo se llama el documento escrito por Morelos?", extraInfo: "Al morir Hidalgo, fue Morelos quien mantuvo viva la llama de la pelea, e incluso escribió un documento donde llamaba a la creación de una nación nueva, donde los puestos de gobierno fueran elegidos por el pueblo, y donde no existiera la esclavitud ni la distinción de castas.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s19_6_morelos.jpg", active: true, sala_id: 1},
   {description: "¿En qué año murió Benito Juárez?", extraInfo: "Las máscaras mortuorias (o funerarias) se crean para conservar la expresión del difunto.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s19_30_mascara.jpg", active: true, sala_id: 1},
   {description: "¿Cómo se llamó el ejército lidereado por Venustiano Carranza?", extraInfo: "El iniciador de la Revolución, Francisco I. Madero, fue traicionado y asesinado. Ante tal hecho, Venustiano Carranza, que era gobernador de Coahuila, reunió a los ejércitos de gran parte del país.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s20_16_bandera.jpg", active: true, sala_id: 1},
-  {description: "Lider del Ejército Libertador del Sur", extraInfo: "Su causa principal fue lograr una reforma Agraria.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s20_18_emiliano.jpg", active: true, sala_id: 1}
+  {description: "Lider del Ejército Libertador del Sur", extraInfo: "Su causa principal fue lograr una reforma Agraria.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s20_18_emiliano.jpg", active: true, sala_id: 1},
+  {description: "¿En qué año se fundó el Museo de Historia Mexicana?", extraInfo: "Ubicado cerca del sitio de la fundación de Monterrey e inaugurado el 30 de noviembre de 1994, el Museo de Historia Mexicana es la exhibición histórica más importante en el norte de México.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/05/DSC_6504.jpg", active: true, sala_id: 1}
 ])
 Sala.create!([
   {number: 130, name: "Sala MHM", mapImgURL: "http://www.3museos.com/wp-content/uploads/2015/05/DSC_6504.jpg", description: "Piezas históricas que hablan del devenir nacional desde tiempos prehispánicos hasta el siglo XX.", exposicion_id: 1}
