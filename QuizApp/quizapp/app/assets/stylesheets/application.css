@@ -119,6 +119,16 @@
    color: #aeaeae !important;
  }
 
+ .button.regresar{
+   background-color: #52318e !important;
+   color: white !important;
+ }
+
+ .button.regresar:hover{
+   background-color: #422872 !important;
+   color: white !important;
+ }
+
  .header.title, .header.action{
    display: inline;
    font-size: 48px;
