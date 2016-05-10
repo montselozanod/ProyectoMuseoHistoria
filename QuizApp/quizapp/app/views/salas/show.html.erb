@@ -27,13 +27,21 @@
 <div class="row small-up-1 medium-up-3 large-up-3">
     <% @preguntas.each do |pregunta| %>
       <div class="column" style="padding-bottom:20px;">
-        <%= image_tag(pregunta.imgURL, :class => "thumbnail imagen") %>
+        <%= link_to image_tag(pregunta.imgURL, :class => "thumbnail imagen"), pregunta_show_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>
         <h5><%= pregunta.description %></h5>
         <div class="museo_links">
-          <%= link_to "Editar", pregunta_edit_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>, <%= link_to "Borrar", pregunta_destroy_path(pregunta), :method => :delete, data: {confirm: "Seguro que deseas borrar?"} %>
+          <%= link_to "Editar", pregunta_edit_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>, <%= link_to "Borrar", pregunta_destroy_path(pregunta), :method => :delete %>
         </div>
       </div>
     <% end %>
     <a class="large button expand nuevo" href="<%= pregunta_new_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @sala.id}) %>">Nueva Pregunta</a>
-    <%= link_to 'Regresar', exposicion_show_path({:museoid => @museoid, :id => @exposicionid}) %>
   </div>
+
+   <br><br><br>
+    <div class="row">
+      <div class="small-6 large-centered columns">
+        <%= link_to "Regresar", exposicion_show_path({:museoid => @museoid, :id => @exposicionid}), :class => "button expand regresar", :style=>"color:white" %>
+      </div>
+    </div>
+
+</div>

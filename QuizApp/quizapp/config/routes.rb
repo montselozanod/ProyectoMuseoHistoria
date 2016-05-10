@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :preguntas
-
-  resources :pregunta
-
   get 'home/index'
 
   get 'admin/index'
@@ -17,6 +13,9 @@ Rails.application.routes.draw do
   resources :salas
   resources :quiz
   resources :preguntas
+  resources :answers
+  resources :trypoints
+  
 
   resource :museos do
     get 'indexquiz'
@@ -37,6 +36,7 @@ Rails.application.routes.draw do
   get 'quiz' => 'quiz#index'
 
   get 'dashboard/museos', to: 'museos#index', :as => 'museo_index'
+  get 'dashboard/resultados', to: 'admin#resultados', :as => 'resultados'
 
   get 'dashboard/museos/new', to: 'museos#new', :as => 'museo_new'
   get 'dashboard/museos/:id', to: 'museos#show', :as => 'museo_show'
@@ -52,6 +52,11 @@ Rails.application.routes.draw do
   get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:id', to: 'salas#show', :as => 'sala_show'
   get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:id/edit', to: 'salas#edit', :as => 'sala_edit'
   delete 'salas/:id', to: 'salas#destroy', :as => 'sala_destroy'
+
+  get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas/:preguntaid/answers/new', to: 'answers#new', :as => 'answer_new'
+  get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas/:preguntaid/answers/:id', to: 'answers#show', :as => 'answer_show'
+  get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas/:preguntaid/answers/:id/edit', to: 'answers#edit', :as => 'answer_edit'
+  delete 'answers/:id', to: 'answers#destroy', :as => 'answer_destroy'
 
   get 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas', to: 'preguntas#index', :as => 'pregunta_index'
   post 'dashboard/museos/:museoid/exposicions/:exposicionid/salas/:salaid/preguntas', to: 'preguntas#create', :as => 'pregunta_create'

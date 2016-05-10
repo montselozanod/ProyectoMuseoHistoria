@@ -37,6 +37,11 @@
       <% end %>
     <% end %>
     <a class="large button expand nuevo" href="<%= sala_new_path({:museoid => @exposicion.museo_id, :exposicionid => @exposicion.id}) %>">Nueva Sala</a>
-    <%= link_to 'Regresar', museo_show_path(@exposicion.museo_id) %>
   </div>
+  <br><br><br>
+    <div class="row">
+      <div class="small-6 large-centered columns">
+        <%= link_to "Regresar", museo_show_path(@exposicion.museo_id), :class => "button expand regresar", :style=>"color:white" %>
+      </div>
+    </div>
 </div>
