@@ -26,7 +26,7 @@
   <div class="callout secondary" style="background-color: #e6ccff;">
     <div class="row column" >
       <div >3 Museos >
-        <%= Museo.find(Exposicion.find(@sala.exposicion_id).id).name %> >
+        <%= Museo.find(Exposicion.find(@sala.exposicion_id).museo_id).name %> >
         <%= Exposicion.find(@sala.exposicion_id).name %> >
         <b><%= @sala.name %></b>
       </div>
