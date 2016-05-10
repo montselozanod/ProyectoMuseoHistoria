@@ -124,7 +124,6 @@
  }
 
  .gohome:hover{
-   color: #aeaeae !important;
    background-color: transparent !important;
  }
 
@@ -230,4 +229,16 @@
 .row.containerHome{
   width: 70%;
   margin:0 auto;
+}
+
+.imagenRespuesta{
+  width: 300px;
+  height: 300px;
+}
+
+.correctoIncorrecto{
+  font-weight: bold;
+  color: #52318e;
+  font-size: 60px;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
 }
