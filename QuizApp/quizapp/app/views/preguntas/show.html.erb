@@ -16,8 +16,11 @@
       <div class="column">
         <h5><%= answer.textAnswer %></h5>
         <div class="museo_links">
-                  </div>  
+            <%= link_to "Editar", answer_edit_path({:salaid => @salaid, :exposicionid => @exposicionid, :museoid => @museoid, :preguntaid => @preguntaid, :id => answer.id}) %>, <%= link_to "Borrar", answer_destroy_path(answer), :method => :delete %>
+        </div>  
       </div>
     <% end %>
-        <%= link_to 'Regresar', sala_show_path({:id => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid}) %>
+    <a class="large button expand nuevo" href="<%= answer_new_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @salaid, :preguntaid => @pregunta.id}) %>">Nueva Respuesta</a>
+    <%= link_to 'Regresar', sala_show_path({:id => @salaid, :exposicionid => @exposicionid, :museoid => @museoid}) %>
   </div>
+</div>

@@ -10,6 +10,31 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="field">
+    <%= f.label :Texto %><br>
+    <%= f.text_field :textAnswer %>
+  </div>
+  <div class="field">
+    <%= f.label :imgURL %><br>
+    <%= f.text_field :imgURL %>
+  </div>
+  <div class="field">
+    <%= f.label :Activa %><br>
+	  <%= f.radio_button :active, 'true' %> Si
+    <%= f.radio_button :active, 'false' %> No  
+  </div>
+  <div class="field">
+    <%= f.label :Correcta %><br>
+	  <%= f.radio_button :correct, 'true' %> Si
+    <%= f.radio_button :correct, 'false' %> No  
+  </div>
+  
+  
+  <div class="field hidden">
+    <%= f.label :pregunta_id %><br>
+    <%= f.text_field :pregunta_id, :value => @preguntaid   %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

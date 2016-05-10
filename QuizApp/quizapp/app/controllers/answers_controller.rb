@@ -13,6 +13,22 @@ class AnswersController < ApplicationController
 
   def new
     @answer = Answer.new
+    @preguntaid  = @answer.pregunta_id
+  end
+  
+  def edit
+    @preguntaid  = @answer.pregunta_id
+  end
+  
+  def update
+    @salaid = params[:salaid]
+    @exposicionid = params[:exposicionid]
+    @museoid = params[:museoid]
+    @preguntaid  = params[:preguntaid]
+    
+    @answer.update(answer_params)
+    
+    redirect_to pregunta_show_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @salaid, :id => @preguntaid})
   end
 
   def create
