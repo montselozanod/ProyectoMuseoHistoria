@@ -1,0 +1,23 @@
+<h1>Listing trypoints</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trypoints.each do |trypoint| %>
+      <tr>
+        <td><%= link_to 'Show', trypoint %></td>
+        <td><%= link_to 'Edit', edit_trypoint_path(trypoint) %></td>
+        <td><%= link_to 'Destroy', trypoint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trypoints', new_trypoint_path %>

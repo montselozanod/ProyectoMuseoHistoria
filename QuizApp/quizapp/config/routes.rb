@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :quiz
   resources :preguntas
   resources :answers
+  resources :trypoints
   
 
   resource :museos do
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
   get 'quiz' => 'quiz#index'
 
   get 'dashboard/museos', to: 'museos#index', :as => 'museo_index'
+  get 'dashboard/resultados', to: 'admin#resultados', :as => 'resultados'
 
   get 'dashboard/museos/new', to: 'museos#new', :as => 'museo_new'
   get 'dashboard/museos/:id', to: 'museos#show', :as => 'museo_show'
