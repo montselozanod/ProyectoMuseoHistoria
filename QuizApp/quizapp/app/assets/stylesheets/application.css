@@ -33,7 +33,13 @@
     margin-left: auto;
     margin-right: auto;
     padding-top: 5%;
-    max-width: 500px;
+    max-width: 700px;
+ }
+
+ .mainLogo{
+   width: 700px;
+   font-weight: bold;
+   font-size: 44px;
  }
 
  .signup-panel {
@@ -53,9 +59,31 @@
  }
 
  .signup-panel .welcome {
-   font-size: 26px;
+   font-size: 36px;
    text-align: center;
    margin-left: 0;
+ }
+
+ .iniciarSesionTexto{
+   font-size: 20px;
+   margin-left: 44px;
+   line-height: 2.4;
+ }
+
+ .iniciarSesionCuadro{
+   width: 60%;
+   margin-right: 44px;
+   margin-top: -0.5px;
+ }
+
+ .recordarmeCheckbox{
+   margin-left: 3px;
+   transform: scale(1.5);
+   -webkit-transform: scale(1.5);
+ }
+
+ .textoBajoBoton{
+   margin-left: -40px;
  }
 
  .signup-panel .button {
@@ -72,6 +100,8 @@
 
  .submit input{
       width:100%;
+      margin-left: -44px;
+      font-size: 20px;
  }
 
  .submit a{
@@ -84,17 +114,40 @@
       background-color: #52318e;
  }
 
+ .logo{
+    width: 200px;
+    height: 100px;
+    margin: 15px;
+ }
+
  .callout.primary{
    background-color: #52318e !important;
    color: white !important;
  }
+
+ .callout.secondary{
+   line-height: 0;
+   font-size: 12px;
+   height: 25px;
+   margin-top: -20px;
+   background-color: #EEEEEE !important;
+   color: black !important;
+ }
+
+ .navegation{
+   color: black !important;
+   background-color: transparent !important;
+ }
+.navegation:hover{
+  text-decoration: underline;
+  background-color: transparent !important;
+}
 
  .gohome{
    color: white !important;
  }
 
  .gohome:hover{
-   color: #aeaeae !important;
    background-color: transparent !important;
  }
 
@@ -119,9 +172,29 @@
    color: #aeaeae !important;
  }
 
+ .button.regresar{
+   background-color: #52318e !important;
+   color: white !important;
+ }
+
+ .button.regresar:hover{
+   background-color: #311D55 !important;
+   color: white !important;
+ }
+
+ .button.respuesta{
+   background-color: #f8511d !important;
+   color: white !important;
+ }
+
+ .button.respuesta:hover{
+   background-color: #dd4d4d !important;
+   color: white !important;
+ }
+
  .header.title, .header.action{
    display: inline;
-   font-size: 48px;
+   font-size: 44px;
  }
 
  .header.action a{
@@ -161,8 +234,29 @@
   background-color: transparent !important;
 }
 
-
 .imagen{
   max-height: 150px;
   margin: 0 auto;
+}
+
+.thumbnail.imagenQuiz:hover {
+ -webkit-box-shadow: 0 0 6px 1px rgb(82, 49, 142);
+ box-shadow: 0 0 6px 1px rgb(82, 49, 142);
+}
+
+.row.containerHome{
+  width: 70%;
+  margin:0 auto;
+}
+
+.imagenRespuesta{
+  width: 300px;
+  height: 300px;
+}
+
+.correctoIncorrecto{
+  font-weight: bold;
+  color: #52318e;
+  font-size: 60px;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
 }

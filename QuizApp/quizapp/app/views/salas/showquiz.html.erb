@@ -9,23 +9,38 @@
 
 <div class="off-canvas-wrapper">
   <div class="callout primary">
+    <% if user_signed_in? %>
+        <div style="background-color: #52318e; color: white; margin-top: -15px;">
+          &nbsp;
+          <div class="header action signin" style="background-color: #52318e; line-height: 24px;">
+            <%= link_to "Salir", destroy_admin_session_path, style:"height: 36px; padding-bottom: 1px;", :method => :delete %>
+          </div>
+        </div>
+    <% end %>
+
     <div class="row column">
       <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
-      <div class="header action"><%= link_to "Cerrar Sesión", destroy_admin_session_path, :method => :delete %></div>
     </div>
   </div>
 
+  <div class="callout secondary" style="background-color: #e6ccff;">
+    <div class="row column" >
+      <div >3 Museos >
+        <%= Museo.find(Exposicion.find(@sala.exposicion_id).id).name %> >
+        <%= Exposicion.find(@sala.exposicion_id).name %> >
+        <b><%= @sala.name %></b>
+      </div>
+    </div>
+  </div>
 <div class="row medium-8 large-7 columns">
-    <h1><%= @sala.name %></h1>
-    <h4><%= @sala.description %></h4>
     <% @preguntas.each_with_index do |pregunta, index| %>
       <% if pregunta.active %>
         <div id="preguntaDiv<%= index %>" class="blog-post" style="display: none">
-          <% if index == 0 %> <script>empezar();</script> <% end %>
-          <h5><%= pregunta.description %></h5>
+          <% if index == 0 %> <script>empezar();</script> <% end %><br>
+          <h4 style="font-weight: bold;"><%= pregunta.description %></h4><br>
           <% pregunta.answers.each do |answer| %>
             <% if answer.active %>
-              <a href="#" class="button expand" style="color:white" onclick="showExtraInfo(<%= index %>, <%= answer.correct %>);return false;">
+              <a href="#" class="button expand respuesta" style="color:white; font-size:20px" onclick="showExtraInfo(<%= index %>, <%= answer.correct %>);return false;">
                 <%= answer.textAnswer %>
               </a>
             <% end %>
@@ -34,16 +49,16 @@
         <div id="extraInfoDiv<%= index %>" class="row medium-8 large-7 columns" style="display: none">
           <div class="blog-post">
             <div align="center">
-              <h3 id="respuestaCorrecta<%= index %>">Correcto!</h3>
-              <%= image_tag(pregunta.imgURL, :class => "thumbnail") %>
+              <h1 class="correctoIncorrecto" id="respuestaCorrecta<%= index %>">¡Respuesta correcta!</h1><br>
+              <%= image_tag(pregunta.imgURL, :class => "thumbnail imagenQuiz imagenRespuesta") %>
             </div>
             <div class="callout">
               <p><%= pregunta.extraInfo %></p>
             </div>
             <% if index == @preguntas.size - 1 %>
-             <%= link_to "Terminar", endquiz_path, :class => "button expand", :style=>"color:white" %>
+             <%= link_to "Enviar", endquiz_path, :class => "button expand regresar", :style=>"color:white" %>
              <% else %>
-              <a href="#" class="button expand" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
+              <a href="#" class="button expand regresar" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
                 Siguiente
               </a>
              <% end %>
@@ -51,7 +66,6 @@
         </div>
       <% end %>
     <% end %>
-    <%= link_to 'Regresar', salasquiz_path({:id => @sala.exposicion_id}) %>
   </div>
 
 <script language="javascript" type="text/javascript">
@@ -76,11 +90,11 @@
 
   function showExtraInfo(i, correcto) {
     if(correcto) {
-      document.getElementById("respuestaCorrecta" + i).innerHTML = "Correcto!";
+      document.getElementById("respuestaCorrecta" + i).innerHTML = "¡Respuesta correcta!";
       updateScore();
     }
     else {
-      document.getElementById("respuestaCorrecta" + i).innerHTML = "Incorrecto!";
+      document.getElementById("respuestaCorrecta" + i).innerHTML = "¡Respuesta incorrecta!";
     }
     var pDiv = document.getElementById("preguntaDiv" + i);
     var iDiv = document.getElementById("extraInfoDiv" + i);

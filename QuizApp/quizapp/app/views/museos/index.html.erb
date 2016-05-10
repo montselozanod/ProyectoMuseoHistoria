@@ -14,7 +14,7 @@
       <div class="column">
 
         <%= link_to image_tag(museo.imgURL, class: "thumbnail"), museo_show_path(museo) %>
-        <h5><%= museo.name %></h5>
+        <h5 style="font-weight: bold;"><%= museo.name %></h5>
         <h5><%= museo.description %></h5>
         <div class="museo_links">
           <%= link_to "Editar", museo_edit_path(museo) %>
