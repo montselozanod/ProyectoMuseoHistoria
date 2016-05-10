@@ -25,13 +25,20 @@
   </div>
   <div class="field">
     <%= f.label :Activa %><br>
-    <%= f.radio_button :active, 'true' %> Si
+    <%= f.radio_button :active, 'true' %> Sí
     <%= f.radio_button :active, 'false' %> No
   </div>
   <div class="field hidden">
     <%= f.label :sala_id %><br>
     <%= f.text_field :sala_id, :value => @salaid  %>
   </div>
+
+  <%= f.fields_for :answers do |builder| %>
+    <%= render 'answer_add', f: builder %>
+  <% end %>
+
+  <%= link_to_add_answer 'Agregar Respuesta', f, :answers %>
+
 
   <div class="actions">
     <%= f.submit %>
