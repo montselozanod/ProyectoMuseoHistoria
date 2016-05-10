@@ -16,7 +16,7 @@
   <div class="callout secondary" style="background-color: #e6ccff;">
     <div class="row column" >
       <div ><%= link_to "Museos", '/museos', :class => "navegation" %> >
-        <%= link_to Museo.find(@exposicion.museo_id).name, '/dashboard/museos/1', :class => "navegation" %> >
+        <%= link_to Museo.find(@exposicion.museo_id).name, '/dashboard/museos/' + @exposicion.museo_id.to_s, :class => "navegation" %> >
         <b><%= @exposicion.name %></b>
       </div>
     </div>
@@ -38,6 +38,7 @@
     <% end %>
     <a class="large button expand nuevo" href="<%= sala_new_path({:museoid => @exposicion.museo_id, :exposicionid => @exposicion.id}) %>">Nueva Sala</a>
   </div>
+
   <br><br><br>
     <div class="row">
       <div class="small-6 large-centered columns">
