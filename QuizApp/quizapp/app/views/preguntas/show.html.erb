@@ -11,18 +11,19 @@
 <div class="row small-up-1 medium-up-3 large-up-3">
     <h1><%= @pregunta.description %></h1>
     <h4><%= @pregunta.extraInfo %></h4>
-            
+
     <% @answers.each do |answer| %>
       <div class="column">
         <h5><%= answer.textAnswer %></h5>
         <div class="museo_links">
             <%= link_to "Editar", answer_edit_path({:salaid => @salaid, :exposicionid => @exposicionid, :museoid => @museoid, :preguntaid => @preguntaid, :id => answer.id}) %>, <%= link_to "Borrar", answer_destroy_path(answer), :method => :delete %>
-        </div>  
+        </div>
       </div>
     <% end %>
+
     <a class="large button expand nuevo" href="<%= answer_new_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @salaid, :preguntaid => @pregunta.id}) %>">Nueva Respuesta</a>
   </div>
-  
+
    <br><br><br>
     <div class="row">
       <div class="small-6 large-centered columns">

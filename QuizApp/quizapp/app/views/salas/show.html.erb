@@ -28,7 +28,7 @@
 <div class="row small-up-1 medium-up-3 large-up-3">
     <% @preguntas.each do |pregunta| %>
       <div class="column" style="padding-bottom:20px;">
-        <%= link_to image_tag(pregunta.imgURL, :class => "thumbnail imagen"), pregunta_show_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>
+        <%= image_tag(pregunta.imgURL, :class => "thumbnail imagen") %>
         <h5><%= pregunta.description %></h5>
         <div class="museo_links">
           <%= link_to "Editar", pregunta_edit_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>, <%= link_to "Borrar", pregunta_destroy_path(pregunta), :method => :delete %>
