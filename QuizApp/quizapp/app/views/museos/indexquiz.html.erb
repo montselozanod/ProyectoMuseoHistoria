@@ -11,11 +11,20 @@
           </div>
         </div>
     <% end %>
-    
+
     <div class="row column">
       <div class="header title"><%= @museo.name %></div>
     </div>
   </div>
+
+  <div class="callout secondary" style="background-color: #e6ccff;">
+  <div class="row column" >
+    <div ><%= link_to "3 Museos", '/quiz', :class => "navegation" %> >
+      <b><%= @museo.name %></b>
+    </div>
+  </div>
+</div>
+</div>
 
   <br>
   <div class="row small-up-1 medium-up-3 large-up-3">
@@ -25,7 +34,7 @@
           <div class="column">
             <%= link_to image_tag(exposicion.imgURL, class: "thumbnail imagenQuiz"), salasquiz_path(exposicion) %>
             <h5 style="font-weight: bold;"><%= exposicion.name %></h5>
-            <h5><%= exposicion.description %></h5>
+            <h5 style="text-align: justify;"><%= exposicion.description %></h5>
           </div>
         <% end %>
       <% end %>

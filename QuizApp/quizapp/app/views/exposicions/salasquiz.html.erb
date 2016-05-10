@@ -15,14 +15,30 @@
       <div class="header title"><%= @exposicion.name %></div>
     </div>
   </div>
+
+  <div class="callout secondary" style="background-color: #e6ccff;">
+    <div class="row column" >
+      <div ><%= link_to "3 Museos", '/quiz', :class => "navegation" %> >
+        <%= link_to  Museo.find(@exposicion.museo_id).name, indexquiz_path(@exposicion.museo_id), :class => "navegation" %> >
+        <b><%= @exposicion.name %></b>
+      </div>
+    </div>
+  </div>
+
 <br>
   <div class="row small-up-1 medium-up-3 large-up-3">
     <% if @exposicion.salas.any? %>
       <% @salas.each do |sala| %>
         <div class="column">
+<<<<<<< HEAD
+          <%= link_to image_tag(sala.mapImgURL, class: "thumbnail"), quizshow_path(sala) %>
+          <h5 style="font-weight: bold;"><%= sala.name %></h5>
+          <h5 style="text-align: justify;"><%= sala.description %></h5>
+=======
           <%= link_to image_tag(sala.mapImgURL, class: "thumbnail imagenQuiz"), quizshow_path(sala) %>
           <h5 style="font-weight: bold;"><%= sala.name %></h5>
           <h5><%= sala.description %></h5>
+>>>>>>> origin/master
         </div>
       <% end %>
     <% end %>

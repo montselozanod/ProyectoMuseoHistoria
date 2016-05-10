@@ -22,6 +22,16 @@
       <div class="header title"><%= @sala.name %></div>
     </div>
   </div>
+
+  <div class="callout secondary" style="background-color: #e6ccff;">
+    <div class="row column" >
+      <div >3 Museos >
+        <%= Museo.find(Exposicion.find(@sala.exposicion_id).id).name %> >
+        <%= Exposicion.find(@sala.exposicion_id).name %> >
+        <b><%= @sala.name %></b>
+      </div>
+    </div>
+  </div>
 <br>
 <div class="row medium-8 large-7 columns">
     <% @preguntas.each_with_index do |pregunta, index| %>
