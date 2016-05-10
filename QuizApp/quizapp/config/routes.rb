@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   resources :salas
   resources :quiz
   resources :preguntas
+  resources :pregunta
   resources :answers
   resources :trypoints
-  
+
 
   resource :museos do
     get 'indexquiz'
