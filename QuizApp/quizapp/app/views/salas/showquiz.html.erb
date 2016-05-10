@@ -19,7 +19,7 @@
     <% end %>
 
     <div class="row column">
-      <div class="header title"><%= @sala.name %></div>
+      <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
     </div>
   </div>
 
@@ -32,12 +32,11 @@
       </div>
     </div>
   </div>
-<br>
 <div class="row medium-8 large-7 columns">
     <% @preguntas.each_with_index do |pregunta, index| %>
       <% if pregunta.active %>
         <div id="preguntaDiv<%= index %>" class="blog-post" style="display: none">
-          <% if index == 0 %> <script>empezar();</script> <% end %>
+          <% if index == 0 %> <script>empezar();</script> <% end %><br>
           <h4 style="font-weight: bold;"><%= pregunta.description %></h4><br>
           <% pregunta.answers.each do |answer| %>
             <% if answer.active %>
@@ -50,8 +49,8 @@
         <div id="extraInfoDiv<%= index %>" class="row medium-8 large-7 columns" style="display: none">
           <div class="blog-post">
             <div align="center">
-              <h3 id="respuestaCorrecta<%= index %>">Correcto!</h3>
-              <%= image_tag(pregunta.imgURL, :class => "thumbnail imagenQuiz") %>
+              <h1 class="correctoIncorrecto" id="respuestaCorrecta<%= index %>">¡Respuesta correcta!</h1><br>
+              <%= image_tag(pregunta.imgURL, :class => "thumbnail imagenQuiz imagenRespuesta") %>
             </div>
             <div class="callout">
               <p><%= pregunta.extraInfo %></p>
@@ -91,11 +90,11 @@
 
   function showExtraInfo(i, correcto) {
     if(correcto) {
-      document.getElementById("respuestaCorrecta" + i).innerHTML = "Correcto!";
+      document.getElementById("respuestaCorrecta" + i).innerHTML = "¡Respuesta correcta!";
       updateScore();
     }
     else {
-      document.getElementById("respuestaCorrecta" + i).innerHTML = "Incorrecto!";
+      document.getElementById("respuestaCorrecta" + i).innerHTML = "¡Respuesta incorrecta!";
     }
     var pDiv = document.getElementById("preguntaDiv" + i);
     var iDiv = document.getElementById("extraInfoDiv" + i);
