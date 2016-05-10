@@ -14,17 +14,25 @@ class AnswersController < ApplicationController
   def new
     @answer = Answer.new
     @preguntaid  = @answer.pregunta_id
-  end
-  
-  def edit
-    @preguntaid  = @answer.pregunta_id
-  end
-  
-  def update
+    
     @salaid = params[:salaid]
     @exposicionid = params[:exposicionid]
     @museoid = params[:museoid]
     @preguntaid  = params[:preguntaid]
+  end
+  
+  def edit
+    @salaid = params[:salaid]
+    @exposicionid = params[:exposicionid]
+    @museoid = params[:museoid]
+    @preguntaid  = params[:preguntaid]
+  end
+  
+  def update
+    @preguntaid  = Pregunta.find(@answer.pregunta_id)
+    @salaid = Sala.find(@preguntaid.sala_id)
+    @exposicionid = Exposicion.find(@salaid.exposicion_id)
+    @museoid = Museo.find(@exposicionid.museo_id)
     
     @answer.update(answer_params)
     
@@ -33,10 +41,15 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(answer_params)
+    
+    @preguntaid  = Pregunta.find(@answer.pregunta_id)
+    @salaid = Sala.find(@preguntaid.sala_id)
+    @exposicionid = Exposicion.find(@salaid.exposicion_id)
+    @museoid = Museo.find(@exposicionid.museo_id)
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
+        format.html { redirect_to pregunta_show_path({:museoid => @museoid.id, :exposicionid => @exposicionid.id, :salaid => @salaid.id, :id => @preguntaid.id}), notice: 'Answer was successfully created.' }
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new }
@@ -51,6 +64,18 @@ class AnswersController < ApplicationController
       current_user.currentPoints += 10
       current_user.save
     end
+  end
+  
+  def destroy
+      
+    @preguntaid  = Pregunta.find(@answer.pregunta_id)
+    @salaid = Sala.find(@preguntaid.sala_id)
+    @exposicionid = Exposicion.find(@salaid.exposicion_id)
+    @museoid = Museo.find(@exposicionid.museo_id)
+    
+    @answer.destroy
+    
+    redirect_to pregunta_show_path({:museoid => @museoid.id, :exposicionid => @exposicionid.id, :salaid => @salaid.id, :id => @preguntaid.id})
   end
 
   private
