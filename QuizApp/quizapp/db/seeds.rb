@@ -34,7 +34,11 @@ Answer.create!([
   {textAnswer: "Pablo González", active: true, imgURL: nil, pregunta_id: 9, correct: false},
   {textAnswer: "Heliodoro Copado", active: true, imgURL: nil, pregunta_id: 9, correct: false},
   {textAnswer: "Emiliano Zapata", active: true, imgURL: nil, pregunta_id: 9, correct: true},
-  {textAnswer: "Felipe Ángeles", active: true, imgURL: nil, pregunta_id: 9, correct: false}
+  {textAnswer: "Felipe Ángeles", active: true, imgURL: nil, pregunta_id: 9, correct: false},
+  {textAnswer: "Una república presidencialista", active: true, imgURL: nil, pregunta_id: 10, correct: false},
+  {textAnswer: "Un imperio", active: true, imgURL: nil, pregunta_id: 10, correct: true},
+  {textAnswer: "Una dictadura militar", active: true, imgURL: nil, pregunta_id: 10, correct: false},
+  {textAnswer: "Una república unipartidista", active: true, imgURL: nil, pregunta_id: 10, correct: false},
 ])
 Exposicion.create!([
   {name: "Permanente MHM", description: "Piezas históricas que hablan del devenir nacional desde tiempos prehispánicos hasta el siglo XX.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/05/DSC_6504.jpg", etype: "permanente", active: true, museo_id: 1},
@@ -55,7 +59,8 @@ Pregunta.create!([
   {description: "¿Cómo se llama el documento escrito por Morelos?", extraInfo: "Al morir Hidalgo, fue Morelos quien mantuvo viva la llama de la pelea, e incluso escribió un documento donde llamaba a la creación de una nación nueva, donde los puestos de gobierno fueran elegidos por el pueblo, y donde no existiera la esclavitud ni la distinción de castas.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s19_6_morelos.jpg", active: true, sala_id: 1},
   {description: "¿En qué año murió Benito Juárez?", extraInfo: "Las máscaras mortuorias (o funerarias) se crean para conservar la expresión del difunto.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s19_30_mascara.jpg", active: true, sala_id: 1},
   {description: "¿Cómo se llamó el ejército lidereado por Venustiano Carranza?", extraInfo: "El iniciador de la Revolución, Francisco I. Madero, fue traicionado y asesinado. Ante tal hecho, Venustiano Carranza, que era gobernador de Coahuila, reunió a los ejércitos de gran parte del país.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s20_16_bandera.jpg", active: true, sala_id: 1},
-  {description: "Lider del Ejército Libertador del Sur", extraInfo: "Su causa principal fue lograr una reforma Agraria.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s20_18_emiliano.jpg", active: true, sala_id: 1}
+  {description: "Lider del Ejército Libertador del Sur", extraInfo: "Su causa principal fue lograr una reforma Agraria.", imgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s20_18_emiliano.jpg", active: true, sala_id: 1},
+  {description: "Cuando se firmó el Acta de Independencia, Mexico quedó constituido como:", extraInfo: "Con el Abrazo de Acatempan, la unión de la guerrilla liderada por Vicente Guerrero y las fuerzas virrecinales dirigidas por Agustín de Iturbide dieron paso al fin de la lucha de independencia. La firma del acta de independencia el 27 de septiembre de 1821, proclamaba a México en un imperio encabezado por Agustín de Iturbide.", imgURL: "http://img.terra.com.mx/galeria_de_fotos/images/286/570541.jpg", active: true, sala_id: 1},
 ])
 Sala.create!([
   {number: 130, name: "Siglo XIX", mapImgURL: "http://www.3museos.com/wp-content/uploads/2015/07/s19_1_fusilamiento.jpg", description: "La sala siglo XIX muestra los hechos más relevantes que dieron pie a la transición del Virreinato de la Nueva España hasta la consolidación de una república, pasando por la creación de dos imperios, invasiones extranjeras, guerras internas y la instauración de una dictadura.", exposicion_id: 1}
