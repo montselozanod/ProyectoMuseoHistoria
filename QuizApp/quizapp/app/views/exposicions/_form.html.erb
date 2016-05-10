@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :Nombre %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :Descripcion %><br>
     <%= f.text_field :description %>
   </div>
   <div class="field">
@@ -25,12 +25,12 @@
   </div>
   <div class="field">
     <%= f.label :Tipo %><br>
-	<%= f.select :etype, ['Permanente', 'Semipermanente', 'Temporal']%>    
+	<%= f.select :etype, ['Permanente', 'Semipermanente', 'Temporal']%>
   </div>
   <div class="field">
     <%= f.label :Activa %><br>
 	<%= f.radio_button :active, 'true' %> Si
-    <%= f.radio_button :active, 'false' %> No  
+    <%= f.radio_button :active, 'false' %> No
   </div>
   <div class="field hidden">
     <%= f.label :museo_id %><br>

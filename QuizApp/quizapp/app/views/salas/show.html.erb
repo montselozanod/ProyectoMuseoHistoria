@@ -3,23 +3,35 @@
 
 <div class="off-canvas-wrapper">
   <div class="callout primary">
+    <div style="background-color: #52318e; color: white; margin-top: -15px; padding-top: 15px;">
+      <div class="header action signin" style="background-color: #52318e; line-height: 24px;">
+        <%= link_to "Salir", destroy_admin_session_path, style:"height: 36px; padding-bottom: 1px;", :method => :delete %>
+      </div>
+    </div>
+
     <div class="row column">
       <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
-      <div class="header action"><%= link_to "Salir", destroy_admin_session_path, :method => :delete %></div>
+    </div>
+  </div>
+
+  <div class="callout secondary" style="background-color: #e6ccff;">
+    <div class="row column" >
+      <div ><%= link_to "Museos", '/museos', :class => "navegation" %> >
+        <%= link_to Museo.find(Exposicion.find(@sala.exposicion_id).id).name, '/dashboard/museos/1', :class => "navegation" %> >
+        <%= link_to Exposicion.find(@sala.exposicion_id).name, '/dashboard/museos/1/exposicions/1', :class => "navegation" %> >
+        <b><%= @sala.name %></b>
+      </div>
     </div>
   </div>
 
 <div class="row small-up-1 medium-up-3 large-up-3">
-    <h1><%= @sala.name %></h1>
-    <h4><%= @sala.description %></h4>
-
     <% @preguntas.each do |pregunta| %>
-      <div class="column">
+      <div class="column" style="padding-bottom:20px;">
         <%= link_to image_tag(pregunta.imgURL, :class => "thumbnail imagen"), pregunta_show_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>
         <h5><%= pregunta.description %></h5>
         <div class="museo_links">
           <%= link_to "Editar", pregunta_edit_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>, <%= link_to "Borrar", pregunta_destroy_path(pregunta), :method => :delete %>
-        </div>  
+        </div>
       </div>
     <% end %>
     <a class="large button expand nuevo" href="<%= pregunta_new_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @sala.id}) %>">Nueva Pregunta</a>

@@ -29,7 +29,7 @@
   <br>
   <div class="row small-up-1 medium-up-3 large-up-3">
     <% if @museo.exposicions.any? %>
-      <% @exposicions.each do |exposicion| %>
+      <% @exposicions.order("created_at asc").each do |exposicion| %>
         <% if exposicion.active %>
           <div class="column">
             <%= link_to image_tag(exposicion.imgURL, class: "thumbnail imagenQuiz"), salasquiz_path(exposicion) %>

@@ -3,15 +3,27 @@
 
 <div class="off-canvas-wrapper">
   <div class="callout primary">
+    <div style="background-color: #52318e; color: white; margin-top: -15px; padding-top: 15px;">
+      <div class="header action signin" style="background-color: #52318e; line-height: 24px;">
+        <%= link_to "Salir", destroy_admin_session_path, style:"height: 36px; padding-bottom: 1px;", :method => :delete %>
+      </div>
+    </div>
+
     <div class="row column">
       <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
-      <div class="header action"><%= link_to "Salir", destroy_admin_session_path, :method => :delete %></div>
+    </div>
+  </div>
+
+  <div class="callout secondary" style="background-color: #e6ccff;">
+    <div class="row column" >
+      <div ><%= link_to "Museos", '/museos', :class => "navegation" %> >
+        <b><%=@museo.name%></b>
+      </div>
     </div>
   </div>
 
   <br>
   <div class="row small-up-1 medium-up-3 large-up-3">
-    <h1><%= @museo.name %></h1>
     <% if @museo.exposicions.any? %>
       <ol class="exposicions">
         <%= render @exposicions %>
