@@ -1,17 +1,21 @@
 <div class="container">
     <div class="center row">
-        <h1 class="center signup-logo">3 Museos</h1>
+      <h1 class="center signup-logo mainLogo">3 Museos Contando Tu Historia.</h1>
+      <%= image_tag("http://www.3museos.com/wp-content/uploads/2015/07/logo-historia.svg", :class => "logo") %>
+      <%= image_tag("http://www.3museos.com/wp-content/uploads/2015/07/logo-mune.svg", :class => "logo") %>
+      <%= image_tag("http://www.3museos.com/wp-content/uploads/2015/07/logo-palacio.svg", :class => "logo") %>
+      <br><br><br>
         <div class="row">
             <div class="large-12 columns">
                 <div class="signup-panel">
-                    <p class="welcome">Recordar contraseña</p>
+                    <p class="welcome">Recuperar Contraseña</p><br>
                     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
                     <%= devise_error_messages! %>
                       <div class="row collapse">
                         <div class="small-4  columns">
-                          <%= f.label :email %>
+                          <%= f.label "Correo", :class => "iniciarSesionTexto" %>
                         </div>
-                        <div class="small-8  columns">
+                        <div class="small-8  columns iniciarSesionCuadro">
                           <%= f.email_field :email, autofocus: true %>
                         </div>
                       </div>
@@ -21,7 +25,7 @@
                           </div>
                           <div class="small-4 columns submit center">
                               <%= f.submit "Enviar" %></br>
-                              <%= render "devise/shared/links" %>
+                              <div class="textoBajoBoton"><%= render "devise/shared/links" %></div>
                           </div>
                       </div>
                     <% end %>

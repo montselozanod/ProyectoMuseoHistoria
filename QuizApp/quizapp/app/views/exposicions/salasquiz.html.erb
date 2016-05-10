@@ -29,8 +29,8 @@
   <div class="row small-up-1 medium-up-3 large-up-3">
     <% if @exposicion.salas.any? %>
       <% @salas.order("created_at asc").each do |sala| %>
-        <div class="column">
-          <%= link_to image_tag(sala.mapImgURL, class: "thumbnail imagenQuiz"), quizshow_path(sala) %>
+        <div class="column" style="float: left;">
+          <%= link_to image_tag(sala.mapImgURL, class: "thumbnail imagenQuiz imagenMenus"), quizshow_path(sala) %>
           <h5 style="font-weight: bold;"><%= sala.name %></h5>
           <h5 style="text-align: justify;"><%= sala.description %></h5>
         </div>
