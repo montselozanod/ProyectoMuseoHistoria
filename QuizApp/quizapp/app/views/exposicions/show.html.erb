@@ -15,7 +15,8 @@
 
   <div class="callout secondary" style="background-color: #e6ccff;">
     <div class="row column" >
-      <div ><%= link_to "Museos", '/museos', :class => "navegation" %> >
+      <div ><%= link_to "Menu", '/dashboard', :class => "navegation" %> >
+        <%= link_to "Museos", '/museos', :class => "navegation" %> >
         <%= link_to Museo.find(@exposicion.museo_id).name, '/dashboard/museos/' + @exposicion.museo_id.to_s, :class => "navegation" %> >
         <b><%= @exposicion.name %></b>
       </div>
