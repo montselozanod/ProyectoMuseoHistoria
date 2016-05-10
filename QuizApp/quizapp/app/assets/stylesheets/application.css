@@ -193,6 +193,12 @@
    color: #aeaeae !important;
  }
 
+.enter:hover{
+  color: black !important;
+  text-decoration: underline;
+  background-color: transparent !important;
+ }
+
  .actions input, .submit input{
    background-color: #52318e !important;
    color: white !important;
@@ -207,7 +213,7 @@
 }
 
 .museo_links a:hover{
-  color: #666 !important;
+  text-decoration: underline;
   background-color: transparent !important;
 }
 
