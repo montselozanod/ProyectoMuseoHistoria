@@ -26,19 +26,19 @@
   <div class="callout secondary" style="background-color: #e6ccff;">
     <div class="row column" >
       <div >3 Museos >
-        <%= Museo.find(Exposicion.find(@sala.exposicion_id).id).name %> >
+        <%= Museo.find(Exposicion.find(@sala.exposicion_id).museo_id).name %> >
         <%= Exposicion.find(@sala.exposicion_id).name %> >
         <b><%= @sala.name %></b>
       </div>
     </div>
   </div>
 <div class="row medium-8 large-7 columns">
-    <% @preguntas.each_with_index do |pregunta, index| %>
+    <% @preguntas.shuffle.each_with_index do |pregunta, index| %>
       <% if pregunta.active %>
         <div id="preguntaDiv<%= index %>" class="blog-post" style="display: none">
           <% if index == 0 %> <script>empezar();</script> <% end %><br>
           <h4 style="font-weight: bold;"><%= pregunta.description %></h4><br>
-          <% pregunta.answers.each do |answer| %>
+          <% pregunta.answers.shuffle.each do |answer| %>
             <% if answer.active %>
               <a href="#" class="button expand respuesta" style="color:white; font-size:20px" onclick="showExtraInfo(<%= index %>, <%= answer.correct %>);return false;">
                 <%= answer.textAnswer %>
