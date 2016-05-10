@@ -264,6 +264,11 @@
   height: 300px;
 }
 
+.imagenMenus{
+  width: 500px;
+  height: 200px;
+}
+
 .correctoIncorrecto{
   font-weight: bold;
   color: #52318e;

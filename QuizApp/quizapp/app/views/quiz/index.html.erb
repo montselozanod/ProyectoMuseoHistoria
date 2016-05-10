@@ -25,8 +25,8 @@
   <br>
   <div class="row small-up-1 medium-up-3 large-up-3">
     <% @museos.order("created_at asc").each do |museo| %>
-      <div class="column">
-        <%= link_to image_tag(museo.imgURL, class: "thumbnail imagenQuiz"), indexquiz_path(museo) %>
+      <div class="column" style="float: left;">
+        <%= link_to image_tag(museo.imgURL, class: "thumbnail imagenQuiz imagenMenus"), indexquiz_path(museo) %>
         <h5 style="font-weight: bold;"><%= museo.name %></h5>
         <h5 style="text-align: justify;"><%= museo.description %></h5>
       </div>
