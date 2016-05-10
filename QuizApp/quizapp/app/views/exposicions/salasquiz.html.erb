@@ -30,9 +30,15 @@
     <% if @exposicion.salas.any? %>
       <% @salas.each do |sala| %>
         <div class="column">
+<<<<<<< HEAD
           <%= link_to image_tag(sala.mapImgURL, class: "thumbnail"), quizshow_path(sala) %>
           <h5 style="font-weight: bold;"><%= sala.name %></h5>
           <h5 style="text-align: justify;"><%= sala.description %></h5>
+=======
+          <%= link_to image_tag(sala.mapImgURL, class: "thumbnail imagenQuiz"), quizshow_path(sala) %>
+          <h5 style="font-weight: bold;"><%= sala.name %></h5>
+          <h5><%= sala.description %></h5>
+>>>>>>> origin/master
         </div>
       <% end %>
     <% end %>
