@@ -10,6 +10,10 @@ class PreguntasController < ApplicationController
   def show
     @pregunta = Pregunta.find(params[:id])
     @answers = @pregunta.answers
+    @salaid = params[:salaid]
+    @museoid = params[:museoid]
+    @exposicionid = params[:exposicionid]
+    @preguntaid = @pregunta.id
   end
 
   def new

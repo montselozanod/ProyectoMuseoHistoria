@@ -1,0 +1,42 @@
+<%= form_for(@answer) do |f| %>
+  <% if @answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+
+      <ul>
+      <% @answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :Texto %><br>
+    <%= f.text_field :textAnswer %>
+  </div>
+  <div class="field">
+    <%= f.label :imgURL %><br>
+    <%= f.text_field :imgURL %>
+  </div>
+  <div class="field">
+    <%= f.label :Activa %><br>
+	  <%= f.radio_button :active, 'true' %> Si
+    <%= f.radio_button :active, 'false' %> No  
+  </div>
+  <div class="field">
+    <%= f.label :Correcta %><br>
+	  <%= f.radio_button :correct, 'true' %> Si
+    <%= f.radio_button :correct, 'false' %> No  
+  </div>
+  
+  
+  <div class="field hidden">
+    <%= f.label :pregunta_id %><br>
+    <%= f.text_field :pregunta_id, :value => @preguntaid   %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
