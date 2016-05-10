@@ -89,6 +89,24 @@
    color: white !important;
  }
 
+ .callout.secondary{
+   line-height: 0;
+   font-size: 12px;
+   height: 25px;
+   margin-top: -20px;
+   background-color: #EEEEEE !important;
+   color: black !important;
+ }
+
+ .navegation{
+   color: black !important;
+   background-color: transparent !important;
+ }
+.navegation:hover{
+  text-decoration: underline;
+  background-color: transparent !important;
+}
+
  .gohome{
    color: white !important;
  }

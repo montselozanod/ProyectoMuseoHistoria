@@ -11,11 +11,20 @@
           </div>
         </div>
     <% end %>
-    
+
     <div class="row column">
       <div class="header title"><%= @museo.name %></div>
     </div>
   </div>
+
+  <div class="callout secondary" style="background-color: #e6ccff;">
+  <div class="row column" >
+    <div ><%= link_to "3 Museos", '/quiz', :class => "navegation" %> >
+      <b><%= @museo.name %></b>
+    </div>
+  </div>
+</div>
+</div>
 
   <br>
   <div class="row small-up-1 medium-up-3 large-up-3">
