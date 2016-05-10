@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="center row">
+        <h1 class="center signup-logo">3 Museos</h1>
+        <div class="row">
+            <div class="large-12 columns">
+                <div class="signup-panel">
+                    <p class="welcome">Nueva Respuesta</p>
+                    <%= render 'form' %>
+                    <%= link_to 'Regresar', pregunta_show_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @salaid, :id => @preguntaid}) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

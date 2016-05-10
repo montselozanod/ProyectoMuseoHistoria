@@ -3,5 +3,9 @@ class AdminController < ApplicationController
   def index
 
   end
+  
+  def resultados
+    @trypoints = Trypoint.all
+  end
 
 end
