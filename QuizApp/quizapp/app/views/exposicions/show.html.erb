@@ -25,7 +25,7 @@
 <br>
   <div class="row small-up-1 medium-up-3 large-up-3">
     <% if @exposicion.salas.any? %>
-      <% @salas.each do |sala| %>
+      <% @salas.order("created_at asc").each do |sala| %>
         <div class="column" style="padding-bottom:20px;">
           <%= link_to image_tag(sala.mapImgURL, class: "thumbnail"), sala_show_path({:id => sala.id, :exposicionid => sala.exposicion_id, :museoid => @museoid}) %>
           <h5 style="font-weight: bold;"><%= sala.name %></h5>

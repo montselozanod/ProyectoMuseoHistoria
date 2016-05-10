@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @exposicions.each do |exposicion| %>
+    <% @exposicions.order("created_at asc").each do |exposicion| %>
       <tr>
         <td><%= exposicion.name %></td>
         <td><%= exposicion.description %></td>

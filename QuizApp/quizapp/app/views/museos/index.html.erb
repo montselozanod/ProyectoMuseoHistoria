@@ -21,9 +21,8 @@
 
   <br>
   <div class="row small-up-1 medium-up-3 large-up-3">
-    <% @museos.each do |museo| %>
-      <div class="column">
-
+    <% @museos.order("created_at asc").each do |museo| %>
+      <div class="column" style="padding-bottom:20px;">
         <%= link_to image_tag(museo.imgURL, class: "thumbnail"), museo_show_path(museo) %>
         <h5 style="font-weight: bold;"><%= museo.name %></h5>
         <h5 style="text-align: justify;"><%= museo.description %></h5>
