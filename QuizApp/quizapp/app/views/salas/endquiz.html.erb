@@ -24,25 +24,31 @@
 		<div class="corkboard">
 
 			<h2 class="text-center"><small class="lead">Puntaje</small></h2>
-
+      <br>
 			<div class="row">
 				<div class="small-3 columns">
 						<div class="post-it">
-							That's what she said
+              <%= image_tag "trophey.png", :class=> "trophey" %>
 						</div>
 				</div>
 
-				<div class="small-9 columns">
+				<div class="small-7 columns">
 					<div class="scrap">
 						<div class="wrapper" id="paper">
-							<img class="img-responsive" src="https://miund.files.wordpress.com/2008/01/logo.jpg" alt="Dunder Mifflin Logo">
-							<p id="quote">
-                Tu puntaje en este examen fue de: <%= current_user.currentPoints %> puntos.
+              <div id="quote">
+							<p style="font-family: Courier, Monospace;">
+                Tu puntaje en este examen fue de:
               </p>
-							<p id="character" class="text-right"></p>
+              <p style="font-weight:bold; font-size: xx-large; font-family: Courier, Monospace;">
+                <%= current_user.currentPoints %> puntos.
+              </p>
+            </div>
 						</div>
 					</div>
 				</div>
+        <div class="small-2 columns">
+          <%= image_tag "m-12.png", :class=> "medal" %>
+        </div>
 			</div>
 
 		</div>
