@@ -3,6 +3,6 @@
       <h5 style="font-weight: bold;"><%= exposicion.name %></h5>
       <h5 style="text-align: justify;"><%= exposicion.description %></h5>
     <div class="museo_links">
-      <%= link_to "Editar", exposicion_edit_path({:id => exposicion.id, :museoid => exposicion.museo_id}) %>, <%= link_to "Borrar", exposicion_destroy_path(exposicion), :method => :delete %>
+      <%= link_to "Editar", exposicion_edit_path({:id => exposicion.id, :museoid => exposicion.museo_id}) %>, <%= link_to "Borrar", exposicion_destroy_path(exposicion), :method => :delete, data: {confirm: "Seguro que deseas borrar?"}%>
     </div>
   </div>

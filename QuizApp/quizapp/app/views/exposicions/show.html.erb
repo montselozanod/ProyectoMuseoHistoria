@@ -31,7 +31,7 @@
           <h5 style="font-weight: bold;"><%= sala.name %></h5>
           <h5 style="text-align: justify;"><%= sala.description %></h5>
           <div class="museo_links">
-            <%= link_to "Editar", sala_edit_path({:id => sala.id, :exposicionid => sala.exposicion_id, :museoid => @museoid}) %>, <%= link_to "Borrar", sala_destroy_path(sala), :method => :delete %>
+            <%= link_to "Editar", sala_edit_path({:id => sala.id, :exposicionid => sala.exposicion_id, :museoid => @museoid}) %>, <%= link_to "Borrar", sala_destroy_path(sala), :method => :delete, data: {confirm: "Seguro que deseas borrar?"} %>
           </div>
         </div>
       <% end %>

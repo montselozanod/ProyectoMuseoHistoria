@@ -30,7 +30,7 @@
         <%= image_tag(pregunta.imgURL, :class => "thumbnail imagen") %>
         <h5><%= pregunta.description %></h5>
         <div class="museo_links">
-          <%= link_to "Editar", pregunta_edit_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>, <%= link_to "Borrar", pregunta_destroy_path(pregunta), :method => :delete %>
+          <%= link_to "Editar", pregunta_edit_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>, <%= link_to "Borrar", pregunta_destroy_path(pregunta), :method => :delete, data: {confirm: "Seguro que deseas borrar?"} %>
         </div>
       </div>
     <% end %>
