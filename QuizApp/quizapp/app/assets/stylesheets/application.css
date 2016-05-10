@@ -227,6 +227,10 @@
    color: white !important;
  }
 
+ .actions input, .submit input:hover{
+   cursor: pointer;
+ }
+
  .hidden{
    visibility: hidden;
  }

@@ -34,6 +34,7 @@
           <div class="column">
             <%= link_to image_tag(exposicion.imgURL, class: "thumbnail imagenQuiz"), salasquiz_path(exposicion) %>
             <h5 style="font-weight: bold;"><%= exposicion.name %></h5>
+            <h6 style="font-weight: bold;"><%= exposicion.etype %></h6>
             <h5 style="text-align: justify;"><%= exposicion.description %></h5>
           </div>
         <% end %>
