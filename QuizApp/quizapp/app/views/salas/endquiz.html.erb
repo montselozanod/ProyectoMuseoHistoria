@@ -15,17 +15,47 @@
       <a href="/" class="gohome"><div class="header title"><%= @sala.name %></div></a>
     </div>
   </div>
+
 <br>
 
+<div class="row">
+<div class="container">
+	<div class="corkboard-border">
+		<div class="corkboard">
 
+			<h2 class="text-center"><small class="lead">Puntaje</small></h2>
+
+			<div class="row">
+				<div class="small-3 columns">
+						<div class="post-it">
+							That's what she said
+						</div>
+				</div>
+
+				<div class="small-9 columns">
+					<div class="scrap">
+						<div class="wrapper" id="paper">
+							<img class="img-responsive" src="https://miund.files.wordpress.com/2008/01/logo.jpg" alt="Dunder Mifflin Logo">
+							<p id="quote">
+                Tu puntaje en este examen fue de: <%= current_user.currentPoints %> puntos.
+              </p>
+							<p id="character" class="text-right"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- /.corkboard -->
+	</div>
+	<!-- /.corkboard-border -->
+</div>
+</div>
+<!-- /.container -->
+<br>
 <div class="row">
   <div class="small-6 large-centered columns">
-
-    <h1> Puntaje: <%= current_user.currentPoints %></h1>
     <%= link_to "Terminar", '/quiz', :class => "button expand regresar", :style=>"color:white" %>
   </div>
 </div>
-
-<script>
-
-</script>
+</div>
