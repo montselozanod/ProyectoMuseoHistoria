@@ -25,7 +25,8 @@
   <br>
   <div class="row">
     <div class="large-4 columns">
-      <table id="datatable" style="margin-left:auto; margin-right:auto; text-align:center;">
+      <h5 style="font-weight:bold;text-align:center;"> Guías </h5>
+      <table id="data" style="margin-left:auto; margin-right:auto; text-align:center;">
           <thead>
               <tr>
                   <th> ID </th>
@@ -42,7 +43,7 @@
           </tbody>
       </table>
         <div class="museo_links" style="text-align: center;">
-        <%= link_to "Ver Todos", admins_user_results_path(:user_id => -1), :remote => true %>
+        <%= link_to "Resultados de Todos los Guías", admins_user_results_path(:user_id => -1), :remote => true %>
         </div>
     </div>
     <div class="large-8 columns" id="results">
