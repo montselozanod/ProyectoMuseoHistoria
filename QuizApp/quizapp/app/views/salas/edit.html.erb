@@ -1,12 +1,14 @@
 <div class="container">
     <div class="center row">
-        <h1 class="center signup-logo">3 Museos</h1>
+        <h1 class="center signup-logo tituloForms">3 Museos</h1>
         <div class="row">
             <div class="large-12 columns">
                 <div class="signup-panel">
-                    <p class="welcome">Editar Sala</p>
+                    <p class="welcome">Editar Sala</p><br>
                     <%= render 'form' %>
-                    <%= link_to 'Regresar', exposicion_show_path({:museoid => @museoid, :id => @exposicionid}) %>
+                  <div class="museo_links">
+                    <%= link_to 'Cancelar', exposicion_show_path({:museoid => @museoid, :id => @exposicionid}) %>
+                  </div>
                 </div>
             </div>
         </div>

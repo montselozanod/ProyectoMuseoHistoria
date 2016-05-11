@@ -2,11 +2,14 @@
 
 <div class="off-canvas-wrapper">
   <div class="callout primary">
-    <div style="background-color: #52318e; color: white; margin-top: -15px; padding-top: 15px;">
-      <div class="header action signin" style="background-color: #52318e; line-height: 24px;">
-        <%= link_to "Salir", destroy_admin_session_path, style:"height: 36px; padding-bottom: 1px;", :method => :delete %>
-      </div>
-    </div>
+    <% if admin_signed_in? %>
+        <div style="background-color: #52318e; color: white; margin-top: -15px;">
+          &nbsp;
+          <div class="header action signin" style="background-color: #52318e; line-height: 24px;">
+            <%= link_to "Salir", destroy_admin_session_path, style:"height: 36px; padding-bottom: 1px;", :method => :delete %>
+          </div>
+        </div>
+    <% end %>
 
     <div class="row column">
       <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
@@ -15,7 +18,7 @@
 
   <div class="callout secondary" style="background-color: #e6ccff;">
     <div class="row column" >
-      <div ><%= link_to "Menu", '/dashboard', :class => "navegation" %> >
+      <div ><%= link_to "Menú", '/dashboard', :class => "navegation" %> >
         <%= link_to "Museos", '/museos', :class => "navegation" %> >
         <%= link_to Museo.find(@exposicion.museo_id).name, '/dashboard/museos/' + @exposicion.museo_id.to_s, :class => "navegation" %> >
         <b><%= @exposicion.name %></b>
@@ -27,8 +30,8 @@
   <div class="row small-up-1 medium-up-3 large-up-3">
     <% if @exposicion.salas.any? %>
       <% @salas.order("created_at asc").each do |sala| %>
-        <div class="column" style="padding-bottom:20px;">
-          <%= link_to image_tag(sala.mapImgURL, class: "thumbnail"), sala_show_path({:id => sala.id, :exposicionid => sala.exposicion_id, :museoid => @museoid}) %>
+        <div class="column" style="padding-bottom:20px; float: left;">
+          <%= link_to image_tag(sala.mapImgURL, class: "thumbnail imagenQuiz imagenMenus"), sala_show_path({:id => sala.id, :exposicionid => sala.exposicion_id, :museoid => @museoid}) %>
           <h5 style="font-weight: bold;"><%= sala.name %></h5>
           <h5 style="text-align: justify;"><%= sala.description %></h5>
           <div class="museo_links">
@@ -37,7 +40,7 @@
         </div>
       <% end %>
     <% end %>
-    <a class="large button expand nuevo" href="<%= sala_new_path({:museoid => @exposicion.museo_id, :exposicionid => @exposicion.id}) %>">Nueva Sala</a>
+    <a class="large button expand respuesta" href="<%= sala_new_path({:museoid => @exposicion.museo_id, :exposicionid => @exposicion.id}) %>">Nueva Sala</a>
   </div>
 
   <br><br><br>
