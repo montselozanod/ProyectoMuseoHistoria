@@ -5,7 +5,7 @@ class AdminsController < ApplicationController
   end
 
   def resultados
-    @users = User.all
+    @users = User.all.sort { |p1, p2| p1.id <=> p2.id}
     @trypoints = Trypoint.all
 
     @prom = 0
