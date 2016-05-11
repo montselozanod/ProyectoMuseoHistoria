@@ -1,6 +1,7 @@
-  <div class="column" style="padding-bottom:20px;">
-    <%= link_to image_tag(exposicion.imgURL, class: "thumbnail"), exposicion_show_path({:id => exposicion.id, :museoid => exposicion.museo_id}) %>
+  <div class="column" style="padding-bottom:20px; float: left;">
+    <%= link_to image_tag(exposicion.imgURL, class: "thumbnail imagenQuiz imagenMenus"), exposicion_show_path({:id => exposicion.id, :museoid => exposicion.museo_id}) %>
       <h5 style="font-weight: bold;"><%= exposicion.name %></h5>
+      <h6 style="font-weight: bold;"><%= exposicion.etype %></h6>
       <h5 style="text-align: justify;"><%= exposicion.description %></h5>
     <div class="museo_links">
       <%= link_to "Editar", exposicion_edit_path({:id => exposicion.id, :museoid => exposicion.museo_id}) %>, <%= link_to "Borrar", exposicion_destroy_path(exposicion), :method => :delete, data: {confirm: "Seguro que deseas borrar?"}%>

@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :Nombre %><br>
+    <%= f.label :Nombre, class: "labelForms" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :Numero %><br>
+    <%= f.label "Número de sala", class: "labelForms" %><br>
     <%= f.text_field :number %>
   </div>
   <div class="field">
-    <%= f.label :Descripcion %><br>
+    <%= f.label "Descripción", class: "labelForms" %><br>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :mapImgURL %><br>
+    <%= f.label "Imagen URL", class: "labelForms" %><br>
     <%= f.text_field :mapImgURL %>
   </div>
-  <div class="field hidden">
+  <div class="field hidden" style="display:none;">
     <%= f.label :exposicion_id %><br>
     <%= f.text_field :exposicion_id, :value => @exposicionid   %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "   Guardar   " %>
   </div>
 <% end %>

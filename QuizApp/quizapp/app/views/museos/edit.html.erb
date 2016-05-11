@@ -1,12 +1,14 @@
 <div class="container">
     <div class="center row">
-        <h1 class="center signup-logo">3 Museos</h1>
+        <h1 class="center signup-logo tituloForms">3 Museos</h1>
         <div class="row">
             <div class="large-12 columns">
                 <div class="signup-panel">
-                    <p class="welcome">Editar Museo</p>
+                    <p class="welcome">Editar Museo</p><br>
                     <%= render 'form' %>
-                    <%= link_to 'Regresar', museo_index_path %>
+                  <div class="museo_links">
+                    <%= link_to 'Cancelar', museo_index_path %>
+                  </div>
                 </div>
             </div>
         </div>

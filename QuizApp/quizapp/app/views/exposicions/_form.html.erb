@@ -12,31 +12,33 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :Nombre %><br>
+    <%= f.label :Nombre, class: "labelForms" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :Descripcion %><br>
+    <%= f.label "Descripción", class: "labelForms" %><br>
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :imgURL %><br>
+    <%= f.label "Imagen URL", class: "labelForms" %><br>
     <%= f.text_field :imgURL %>
   </div>
   <div class="field">
-    <%= f.label :Tipo %><br>
+    <%= f.label :Tipo, class: "labelForms" %><br>
 	<%= f.select :etype, ['Permanente', 'Semipermanente', 'Temporal']%>
   </div>
   <div class="field">
-    <%= f.label :Activa %><br>
-	<%= f.radio_button :active, 'true' %> Si
-    <%= f.radio_button :active, 'false' %> No
+    <%= f.label :Activa, class: "labelForms" %><br>
+    <div class="radioButtonDiv">
+	   <%= f.radio_button :active, 'true' %> <span class="radioButtonLabel">Sí</span>
+    <%= f.radio_button :active, 'false' %> <span class="radioButtonLabel">No</span>
+    </div>
   </div>
-  <div class="field hidden">
+  <div class="field hidden" style="display:none;">
     <%= f.label :museo_id %><br>
     <%= f.text_field :museo_id, :value => @museoid   %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions buttonNewForms">
+    <%= f.submit "   Guardar   " %>
   </div>
 <% end %>

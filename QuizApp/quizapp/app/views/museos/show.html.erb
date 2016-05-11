@@ -3,11 +3,14 @@
 
 <div class="off-canvas-wrapper">
   <div class="callout primary">
-    <div style="background-color: #52318e; color: white; margin-top: -15px; padding-top: 15px;">
-      <div class="header action signin" style="background-color: #52318e; line-height: 24px;">
-        <%= link_to "Salir", destroy_admin_session_path, style:"height: 36px; padding-bottom: 1px;", :method => :delete %>
-      </div>
-    </div>
+    <% if admin_signed_in? %>
+        <div style="background-color: #52318e; color: white; margin-top: -15px;">
+          &nbsp;
+          <div class="header action signin" style="background-color: #52318e; line-height: 24px;">
+            <%= link_to "Salir", destroy_admin_session_path, style:"height: 36px; padding-bottom: 1px;", :method => :delete %>
+          </div>
+        </div>
+    <% end %>
 
     <div class="row column">
       <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
@@ -16,7 +19,7 @@
 
   <div class="callout secondary" style="background-color: #e6ccff;">
     <div class="row column" >
-      <div ><%= link_to "Menu", '/dashboard', :class => "navegation" %> >
+      <div ><%= link_to "Menú", '/dashboard', :class => "navegation" %> >
         <%= link_to "Museos", '/museos', :class => "navegation" %> >
         <b><%=@museo.name%></b>
       </div>
@@ -27,10 +30,10 @@
   <div class="row small-up-1 medium-up-3 large-up-3">
     <% if @museo.exposicions.any? %>
       <ol class="exposicions">
-        <%= render @exposicions %>
+        <%= render @exposicions.reverse %>
       </ol>
     <% end %>
-    <a class="large button expand nuevo" href="<%= exposicion_new_path(@museo.id) %>">Nueva Exposicion</a>
+    <a class="large button expand respuesta" href="<%= exposicion_new_path(@museo.id) %>">Nueva Exposición</a>
   </div>
   <br><br><br>
     <div class="row">
