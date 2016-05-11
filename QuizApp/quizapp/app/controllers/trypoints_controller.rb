@@ -70,6 +70,6 @@ class TrypointsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trypoint_params
-      params.require(:trypoints).permit(:points, :numTry, :user_id)
+      params.require(:trypoints).permit(:points, :numTry, :user_id, :museo, :sala)
     end
 end

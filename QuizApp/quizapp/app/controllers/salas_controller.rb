@@ -72,7 +72,12 @@ class SalasController < ApplicationController
       numTry = 1
     end
 
-    object = Trypoint.new(:points => current_user.currentPoints, :numTry => numTry , :user_id => current_user.id)
+    @idExp = @sala.exposicion_id.to_s
+    @exposicion = Exposicion.find(@idExp)
+    @idMuseo = @exposicion.museo_id
+
+    museoName = Museo.find(@idMuseo).name
+    object = Trypoint.new(:points => current_user.currentPoints, :numTry => numTry , :user_id => current_user.id, :museo => museoName, :sala =>@sala.name)
     object.save
   end
 
