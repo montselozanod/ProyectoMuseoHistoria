@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'home/index'
 
   get 'admin/index'
-  get 'admin/user_results'
+  get 'admins/user_results'
   get 'quiz/index'
 
   devise_for :admins
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :pregunta
   resources :answers
   resources :trypoints
+  resources :admins
 
 
   resource :museos do
@@ -33,11 +34,12 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-  get 'dashboard' => 'admin#index'
+  get 'dashboard' => 'admins#index'
   get 'quiz' => 'quiz#index'
 
   get 'dashboard/museos', to: 'museos#index', :as => 'museo_index'
-  get 'dashboard/resultados', to: 'admin#resultados', :as => 'resultados'
+  get 'dashboard/resultados', to: 'admins#resultados', :as => 'resultados'
+  get 'dashboard/registro', to: 'admins#registrar', :as => 'registrar'
 
   get 'dashboard/museos/new', to: 'museos#new', :as => 'museo_new'
   get 'dashboard/museos/:id', to: 'museos#show', :as => 'museo_show'

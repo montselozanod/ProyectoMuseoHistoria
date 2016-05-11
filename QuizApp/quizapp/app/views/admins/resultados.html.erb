@@ -36,7 +36,7 @@
               <% @users.each do |user| %>
               <tr>
                   <td><%= user.id %></td>
-                  <td><%= link_to user.email, admin_user_results_path(:user_id => user.id), :remote => true %></td>
+                  <td><%= link_to user.email, admins_user_results_path(:user_id => user.id), :remote => true %></td>
               </tr>
               <% end %>
           </tbody>
