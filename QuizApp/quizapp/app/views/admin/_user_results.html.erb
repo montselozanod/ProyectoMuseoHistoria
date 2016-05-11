@@ -1,0 +1,35 @@
+<table id="datatable" style="margin-left:auto; margin-right:auto; text-align:center;">
+    <thead>
+        <tr>
+            <th> ID </th>
+            <th>Puntaje</th>
+            <th>Intento</th>
+            <th>Museo</th>
+            <th>Sala</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @trypoints != nil %>
+          <% @trypoints.each do |trypoint| %>
+          <tr>
+              <td><%= trypoint.id %></td>
+              <td><%= trypoint.points %></td>
+              <td><%= trypoint.numTry %></td>
+              <td><%= trypoint.museo %></td>
+              <td><%= trypoint.sala %></td>
+              <td><%= trypoint.created_at %></td>
+          </tr>
+          <% end %>
+        <% else %>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'home/index'
 
   get 'admin/index'
-
+  get 'admin/user_results'
   get 'quiz/index'
 
   devise_for :admins

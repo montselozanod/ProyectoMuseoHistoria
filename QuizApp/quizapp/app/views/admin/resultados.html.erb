@@ -21,31 +21,27 @@
   </div>
   <br>
   <div class="row">
-    <table id="datatable" style="margin-left:auto; margin-right:auto; text-align:center;">
-        <thead>
-            <tr>
-                <th>Usuario</th>
-                <th>Puntaje</th>
-                <th>Intentos</th>
-                <th>Museo</th>
-                <th>Sala</th>
-                <th>Fecha</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <% @trypoints.each do |trypoint| %>
-            <tr>
-                <td><%= trypoint.user.email %></td>
-                <td><%= trypoint.points %></td>
-                <td><%= trypoint.numTry %></td>
-                <td><%= trypoint.museo %></td>
-                <td><%= trypoint.sala %></td>
-                <td><%= trypoint.created_at %></td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
+    <div class="large-4 columns">
+      <table id="datatable" style="margin-left:auto; margin-right:auto; text-align:center;">
+          <thead>
+              <tr>
+                  <th> ID </th>
+                  <th>Usuario</th>
+              </tr>
+          </thead>
+          <tbody>
+              <% @users.each do |user| %>
+              <tr>
+                  <td><%= user.id %></td>
+                  <td><%= link_to user.email, admin_user_results_path(:user_id => user.id), :remote => true %></td>
+              </tr>
+              <% end %>
+          </tbody>
+      </table>
+    </div>
+    <div class="large-8 columns" id="results">
+      <%= render partial: 'user_results', locals: {trypoints: @trypoints }  %>
+    </div>
   </div>
 
 </div>
