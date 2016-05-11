@@ -45,6 +45,8 @@
         <div class="museo_links" style="text-align: center;">
         <%= link_to "Resultados de Todos los Guías", admins_user_results_path(:user_id => -1), :remote => true %>
         </div>
+        <br>
+        <br>
     </div>
     <div class="large-8 columns" id="results">
       <%= render partial: 'user_results', locals: {trypoints: @trypoints }  %>
@@ -61,23 +63,23 @@
 </div>
 <script>
 $("#data").dataTable(  {
-        "language": {
-            "lengthMenu": "Desplegar _MENU_ ",
-            "zeroRecords": "No se encontro nada",
-            "info": "Mostrando página _PAGE_ de _PAGES_",
-            "infoEmpty": "No hay tuplas disponibles",
-            "infoFiltered": "(filtrado de _MAX_ tuplas en total)",
-            "search":         "Buscar:",
-            "paginate": {
-              "first":      "Primero",
-              "last":       "Último",
-              "next":       "Siguiente",
-              "previous":   "Anterior"
-              },
-            "aria": {
-              "sortAscending":  ": activar para ordenar columna de manera ascendiente",
-              "sortDescending": ": activar para ordenar columna de manera descendiente"
-            }
-        }
-    });
+      "language": {
+          "lengthMenu": "Desplegar _MENU_ ",
+          "zeroRecords": "No se encontro nada",
+          "info": "Mostrando página _PAGE_ de _PAGES_",
+          "infoEmpty": "No hay tuplas disponibles",
+          "infoFiltered": "(filtrado de _MAX_ tuplas en total)",
+          "search":         "Buscar:",
+          "paginate": {
+            "first":      "Primero",
+            "last":       "Último",
+            "next":       "Siguiente",
+            "previous":   "Anterior"
+            },
+          "aria": {
+            "sortAscending":  ": activar para ordenar columna de manera ascendiente",
+            "sortDescending": ": activar para ordenar columna de manera descendiente"
+          }
+      }
+  });
 </script>
