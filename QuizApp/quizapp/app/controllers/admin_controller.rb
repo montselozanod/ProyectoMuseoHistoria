@@ -13,7 +13,14 @@ class AdminController < ApplicationController
     @id = params[:user_id]
     @user = User.find(@id)
     @trypoints = @user.trypoints
-    
+
+    @prom = 0
+
+    @trypoints.each do |trypoint|
+      @prom += trypoint.points
+    end
+
+    @prom = @prom/@trypoints.length
     respond_to do |format|
       format.js
     end
