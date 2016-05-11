@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+
+<div class="off-canvas-wrapper">
+  <div class="callout primary">
+    <% if admin_signed_in? %>
+        <div style="background-color: #52318e; color: white; margin-top: -15px;">
+          &nbsp;
+          <div class="header action signin" style="background-color: #52318e; line-height: 24px;">
+            <%= link_to "Salir", destroy_admin_session_path, style:"height: 36px; padding-bottom: 1px;", :method => :delete %>
+          </div>
+        </div>
+    <% end %>
+
+    <div class="row column">
+      <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
+    </div>
+  </div>
+  <div class="callout secondary" style="background-color: #e6ccff;">
+    <div class="row column" >
+      <div ><%= link_to "Menú", '/dashboard', :class => "navegation" %> >
+        <b>Resultados</b>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <table id="datatable">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Puntaje</th>
+                <th>Intentos</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @trypoints.each do |trypoint| %>
+            <tr>
+                <td><%= trypoint.user.email %></td>
+                <td><%= trypoint.points %></td>
+                <td><%= trypoint.numTry %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+  </div>
+
+</div>
+
+<br><br><br>
+<div class="row">
+  <div class="small-6 large-centered columns">
+    <%= link_to "Regresar", '/dashboard', :class => "button expand regresar", :style=>"color:white" %>
+  </div>
+</div>

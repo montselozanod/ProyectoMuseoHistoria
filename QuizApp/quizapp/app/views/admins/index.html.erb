@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+
+<div class="off-canvas-wrapper">
+  <div class="callout primary">
+    <% if admin_signed_in? %>
+      <div style="background-color: #52318e; color: white; margin-top: -15px;">
+          Bienvenido <%= current_admin.email %>
+          <div class="header action signin" style="background-color: #52318e; line-height: 24px;">
+            <%= link_to "Salir", destroy_admin_session_path, style:"height: 36px; padding-bottom: 1px;", :method => :delete %>
+          </div>
+      </div>
+    <% end %>
+
+    <div class="row column">
+      <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
+    </div>
+  </div>
+
+  <div class="callout secondary" style="background-color: #e6ccff;">
+  <div class="row column" >
+    <div ><b>Menú</b></div>
+  </div>
+  </div>
+
+  <br>
+  <div class="row small-up-1 medium-up-3 large-up-3">
+    <a class="large button expand nuevo regresar" href="dashboard/museos">Museos</a>
+    <a class="large button expand nuevo regresar" href="dashboard/resultados">Resultados</a>
+    <a class="large button expand nuevo regresar" href="dashboard/registro">Registrar Administrador</a>
+  </div>
+
+</div>
