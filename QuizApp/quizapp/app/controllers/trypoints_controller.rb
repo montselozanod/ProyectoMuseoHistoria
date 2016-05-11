@@ -5,7 +5,7 @@ class TrypointsController < ApplicationController
   # GET /trypointss
   # GET /trypointss.json
   def index
-    @trypoints = Trypoint.all
+    @trypoints = Trypoint.order(params[:sort]) + ' ' + params[:direction])
   end
 
   # GET /trypointss/1
@@ -60,6 +60,14 @@ class TrypointsController < ApplicationController
       format.html { redirect_to trypointss_index_url, notice: 'Trypointss was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def sort_column
+    Trypoint.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
   private
