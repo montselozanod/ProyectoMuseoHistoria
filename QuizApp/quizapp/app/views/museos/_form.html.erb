@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :Nombre %><br>
+    <%= f.label "Nombre", class: "labelForms" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :Descripcion %><br>
+    <%= f.label "Descripción", class: "labelForms" %><br>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :imgURL %><br>
+    <%= f.label "Imagen URL", class: "labelForms" %><br>
     <%= f.text_field :imgURL %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "   Guardar   " %>
   </div>
 <% end %>

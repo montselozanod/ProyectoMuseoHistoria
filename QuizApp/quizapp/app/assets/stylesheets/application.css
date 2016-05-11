@@ -286,3 +286,37 @@
   font-size: 60px;
   font-family: "futura-pt", helvetica, arial, sans-serif;
 }
+
+.labelForms{
+  font-size: 15px;
+  font-weight: bold;
+  cursor: default;
+}
+
+.tituloForms {
+  font-weight: normal;
+}
+
+.radioButtonLabel{
+  position: relative;
+  top: -21px;
+  padding-right: 40px;
+}
+
+.radioButtonDiv{
+  position: relative;
+  left: 150px;
+  top: -52px;
+  padding-right: 40px;
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+}
+
+.buttonNewForms{
+  position: relative;
+  top: -60px;
+}
+
+.panelCustomeForms{
+  height: 650px;
+}
