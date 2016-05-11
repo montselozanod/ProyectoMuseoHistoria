@@ -7,12 +7,6 @@ class AdminsController < ApplicationController
   def resultados
     @users = User.all
     @trypoints = Trypoint.all
-  end
-
-  def user_results
-    @id = params[:user_id]
-    @user = User.find(@id)
-    @trypoints = @user.trypoints
 
     @prom = 0
 
@@ -21,10 +15,29 @@ class AdminsController < ApplicationController
     end
 
     @prom = @prom/@trypoints.length
+  end
+
+  def user_results
+    @id = params[:user_id]
+    @trypoints
+    if @id.to_i == -1
+      @trypoints = Trypoint.all
+    else
+      @user = User.find(@id)
+      @trypoints = @user.trypoints
+    end
+
+    @prom = 0
+
+    @trypoints.each do |trypoint|
+      @prom += trypoint.points
+    end
+
+    @prom = @prom/@trypoints.length
+
     respond_to do |format|
       format.js
     end
-    #render :partial=>"user_results", :locals=>{:trypoints=>@selected}
   end
 
   def registrar

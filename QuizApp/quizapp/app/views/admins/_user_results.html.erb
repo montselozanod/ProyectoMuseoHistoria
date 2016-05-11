@@ -1,11 +1,9 @@
 <% if @user != nil %>
-  <h5 style="font-weight:bold;text-align:center;"> Resultados de: <%= @user.email %> </h5>
-
-  <h5 style="text-align:center;"> Promedio: <%= @prom %> </h5>
-
+  <h5 style="font-weight:bold;text-align:center;"> Guía : <%= @user.email %> </h5>
 <% else %>
-  <h5 style="font-weight:bold;text-align:center;"> Resultados de: ? </h5>
+  <h5 style="font-weight:bold;text-align:center;"> Resultados de Guias </h5>
 <% end %>
+<h5 style="text-align:center;"> Promedio: <%= @prom %> </h5>
 <table id="datatable" style="margin-left:auto; margin-right:auto; text-align:center;">
     <thead>
         <tr>
