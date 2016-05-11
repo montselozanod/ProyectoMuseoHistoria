@@ -21,9 +21,9 @@
         <% if @trypoints != nil %>
           <% @trypoints.each do |trypoint| %>
           <tr>
-              <td><%= sortable trypoint.id %></td>
-              <td><%= sortable trypoint.points %></td>
-              <td><%= sortable trypoint.numTry %></td>
+              <td><%= trypoint.id %></td>
+              <td><%= trypoint.points %></td>
+              <td><%= trypoint.numTry %></td>
               <td><%= trypoint.museo %></td>
               <td><%= trypoint.sala %></td>
               <td><%= trypoint.created_at %></td>
