@@ -255,6 +255,16 @@
   background-color: transparent !important;
 }
 
+
+.user_links a{
+  color: #2199e8 !important;
+}
+
+.user_links a:hover{
+  text-decoration: underline;
+  background-color: transparent !important;
+}
+
 .imagen{
   max-height: 150px;
   margin: 0 auto;
