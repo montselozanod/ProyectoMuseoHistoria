@@ -32,7 +32,7 @@
     <% @preguntas.each do |pregunta| %>
       <div class="column" style="padding-bottom:20px;">
         <%= image_tag(pregunta.imgURL, :class => "thumbnail imagenQuiz imagen") %>
-        <h5><%= pregunta.description %></h5>
+        <h5 style="text-align: justify;"><%= pregunta.description %></h5>
         <div class="museo_links">
           <%= link_to "Editar", pregunta_edit_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>, <%= link_to "Borrar", pregunta_destroy_path(pregunta), :method => :delete, data: {confirm: "Seguro que deseas borrar?"} %>
         </div>
