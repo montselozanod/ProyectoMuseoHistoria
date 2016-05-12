@@ -6,7 +6,9 @@
                 <div class="signup-panel">
                     <p class="welcome">Editar Pregunta</p>
                     <%= render 'form' %>
-                    <%= link_to 'Regresar', sala_show_path({:museoid => @museoid, :exposicionid => @exposicionid, :id => @salaid}) %>
+                  <div class="museo_links">
+                    <%= link_to 'Cancelar', sala_show_path({:museoid => @museoid, :exposicionid => @exposicionid, :id => @salaid}) %>
+                  </div>
                 </div>
             </div>
         </div>
