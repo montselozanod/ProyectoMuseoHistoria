@@ -28,9 +28,9 @@ class PreguntasController < ApplicationController
   end
 
   def update
-    @salaid = params[:salaid]
-    @exposicionid = params[:exposicionid]
-    @museoid = params[:museoid]
+    @salaid = @pregunta.sala_id
+    @exposicionid = Sala.find(@salaid).exposicion_id
+    @museoid = Exposicion.find(@exposicionid).museo_id
 
     @pregunta.update(pregunta_params)
 
