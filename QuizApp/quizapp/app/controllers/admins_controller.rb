@@ -19,7 +19,7 @@ class AdminsController < ApplicationController
 
   def user_results
     @id = params[:user_id]
-    @trypoints
+
     if @id.to_i == -1
       @trypoints = Trypoint.all
     else
@@ -33,7 +33,11 @@ class AdminsController < ApplicationController
       @prom += trypoint.points
     end
 
-    @prom = @prom/@trypoints.length
+    if @trypoints.length > 0
+      @prom = @prom/@trypoints.length
+    else
+      @prom = 0
+    end
 
     respond_to do |format|
       format.js

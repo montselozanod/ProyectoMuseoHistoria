@@ -34,13 +34,14 @@
     <%= render 'answer_add', f: builder %>
   <% end %>
 
+  <div class="museo_links">
   <%= link_to_add_answer 'Agregar Respuesta', f, :answers %>
-
+  </div>
   <div class="field hidden">
     <%= f.label :sala_id %><br>
     <%= f.text_field :sala_id, :value => @salaid  %>
   </div>
-  
+
   <div class="actions">
     <%= f.submit %>
   </div>
