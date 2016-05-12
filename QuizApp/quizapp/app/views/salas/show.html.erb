@@ -31,14 +31,14 @@
 <div class="row small-up-1 medium-up-3 large-up-3">
     <% @preguntas.each do |pregunta| %>
       <div class="column" style="padding-bottom:20px;">
-        <%= image_tag(pregunta.imgURL, :class => "thumbnail imagen") %>
+        <%= image_tag(pregunta.imgURL, :class => "thumbnail imagenQuiz imagen") %>
         <h5><%= pregunta.description %></h5>
         <div class="museo_links">
           <%= link_to "Editar", pregunta_edit_path({:salaid => @sala.id, :exposicionid => @exposicionid, :museoid => @museoid, :id => pregunta.id}) %>, <%= link_to "Borrar", pregunta_destroy_path(pregunta), :method => :delete %>
         </div>
       </div>
     <% end %>
-    <a class="large button expand nuevo" href="<%= pregunta_new_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @sala.id}) %>">Nueva Pregunta</a>
+    <a class="large button expand respuesta" href="<%= pregunta_new_path({:museoid => @museoid, :exposicionid => @exposicionid, :salaid => @sala.id}) %>">Nueva Pregunta</a>
   </div>
 
    <br><br><br>

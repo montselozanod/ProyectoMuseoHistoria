@@ -19,6 +19,8 @@ class PreguntasController < ApplicationController
   def new
     @pregunta = Pregunta.new
     @salaid = params[:salaid]
+    @museoid = params[:museoid]
+    @exposicionid = params[:exposicionid]
   end
 
   def edit

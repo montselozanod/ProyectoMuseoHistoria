@@ -12,21 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :description, 'Descripción' %><br>
+    <%= f.label :description, 'Descripción', class: "labelForms" %><br>
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :extraInfo, 'Información Adicional' %><br>
+    <%= f.label :extraInfo, 'Información Adicional', class: "labelForms" %><br>
     <%= f.text_field :extraInfo %>
   </div>
   <div class="field">
-    <%= f.label :imgURL %><br>
+    <%= f.label "Imagen URL", class: "labelForms" %><br>
     <%= f.text_field :imgURL %>
   </div>
   <div class="field">
-    <%= f.label :Activa %><br>
-    <%= f.radio_button :active, 'true' %> Sí
-    <%= f.radio_button :active, 'false' %> No
+    <%= f.label :Activa, class: "labelForms" %><br>
+    <div class="radioButtonDiv">
+	   <%= f.radio_button :active, 'true', checked: true %> <span class="radioButtonLabel">Sí</span>
+    <%= f.radio_button :active, 'false' %> <span class="radioButtonLabel">No</span>
+    </div>
   </div>
 
 
@@ -34,14 +36,16 @@
     <%= render 'answer_add', f: builder %>
   <% end %>
 
-  <%= link_to_add_answer 'Agregar Respuesta', f, :answers %>
+  <div class="museo_links">
+    <%= link_to_add_answer 'Agregar Respuesta', f, :answers %>
+  </div><br>
 
-  <div class="field hidden">
+  <div class="field hidden" style="display:none;">
     <%= f.label :sala_id %><br>
     <%= f.text_field :sala_id, :value => @salaid  %>
   </div>
-  
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "   Guardar   " %>
   </div>
 <% end %>

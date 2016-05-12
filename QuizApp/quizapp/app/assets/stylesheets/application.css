@@ -314,6 +314,15 @@
   padding-right: 40px;
 }
 
+.radioButtonRespuesta{
+  position: relative;
+  left: 150px;
+  top: -32px;
+  padding-right: 40px;
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+}
+
 .radioButtonDiv{
   position: relative;
   left: 150px;
