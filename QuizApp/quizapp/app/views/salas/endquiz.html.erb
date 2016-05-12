@@ -19,7 +19,7 @@
   <div class="callout secondary" style="background-color: #e6ccff;">
     <div class="row column" >
       <div ><%= link_to "3 Museos", '/quiz', :class => "navegation" %> >
-        <%= link_to Museo.find(Exposicion.find(@sala.exposicion_id).id).name, indexquiz_path(Museo.find(Exposicion.find(@sala.exposicion_id).id).id), :class => "navegation" %> >
+        <%= link_to Museo.find(Exposicion.find(@sala.exposicion_id).museo_id).name, indexquiz_path(Museo.find(Exposicion.find(@sala.exposicion_id).museo_id).id), :class => "navegation" %> >
         <%= link_to Exposicion.find(@sala.exposicion_id).name, '/quiz/exposicions/' + Exposicion.find(@sala.exposicion_id).id.to_s, :class => "navegation" %> >
         <b><%= @sala.name %></b>
       </div>
